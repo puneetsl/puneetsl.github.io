@@ -1,0 +1,282 @@
+/*--RESET--*/
+ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+	border:0;
+	outline:0;
+	font-weight:inherit;
+	font-style:inherit;
+	font-size:100%;
+	font-family:inherit;
+	vertical-align:baseline;
+	margin:0;
+	padding:0;
+}
+:focus {
+	outline:0;
+}
+body {
+	line-height:1;
+	color:#000;
+}
+ol, ul {
+	list-style:none;
+}
+table {
+	border-collapse:separate;
+	border-spacing:0;
+}
+caption, th, td {
+	text-align:left;
+	font-weight:400;
+}
+.clear {
+	clear: both;
+}
+.clear.big {
+	padding-bottom: 30px;
+}
+.clearfix:after {
+	content:".";
+	display:block;
+	height:0;
+	clear:both;
+	visibility:hidden;
+}
+/* ----- clear fix for floats ----- */
+ .clearfix {
+	display:inline-block;
+}
+* html .clearfix {
+	height:1%;
+}
+/* hides clearfix from IE-mac */
+ .clearfix {
+	display:block;
+}
+/* end hide from IE-mac */
+
+/*--FRAMEWORK--*/
+*, *:after, *:before { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; padding: 0; margin: 0; }
+html{
+	height: 100%;
+}
+.section {
+	width: 100%;
+}
+
+p {
+	margin-bottom: 20px;
+}
+
+.floatright {
+	float: right;
+}
+
+.floatleft {
+	float: left;
+}
+
+.video-container {
+	position: relative;
+	padding-bottom: 52.6%;
+	padding-top: 30px;
+	height: 0;
+	overflow: hidden;
+}
+
+.video-container iframe,  
+.video-container object,  
+.video-container embed {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.soundcloud-container {
+	position: relative;
+	padding-bottom: 22%;
+	padding-top: 30px;
+	height: 0;
+	overflow: hidden;
+	margin-bottom: 20px;
+}
+
+.soundcloud-container iframe,  
+.soundcloud-container object,  
+.soundcloud-container embed {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.full_width {
+	width: 100%; margin-bottom: 20px;
+}
+.one_half { width: 48%; }
+.one_third { width: 30.66%; }
+.two_thirds { width: 65.33%; }
+.one_fourth { width: 22%; }
+.three_fourths, .three_fourth { width: 74%; }
+.one_fifth { width: 16.8%; }
+.two_fifth { width: 37.6%; }
+.three_fifth { width: 58.4%; }
+.four_fifth { width: 67.2%; }
+.one_sixth { width: 110px; }
+.five_sixth { width: 82.67%; }
+
+.one_half,
+.one_third,
+.two_thirds,
+.three_fourths,
+.one_fourth,
+.one_fifth,
+.two_fifth,
+.three_fifth,
+.four_fifth,
+.one_sixth,
+.five_sixth {
+	position: relative;
+	margin-right: 4%;
+	margin-bottom: 20px;
+	float: left;
+}
+
+.last {
+	margin-right: 0;
+}
+
+img {
+	max-width: 100%; height: auto;
+}
+
+.breakword {
+	word-wrap: break-word;
+}
+
+.normal-wrap {
+	word-wrap: normal;
+}
+
+.inherit-wrap {
+	word-wrap: auto;
+}
+
+.drop-cap:first-letter {
+	float: left;
+	margin: auto .25em auto auto;
+	padding: inherit;
+	font-size: 4em;
+	font-family: inherit;
+	line-height: 1;
+	text-indent: 0;
+	background: transparent;
+	color: inherit;
+}
+
+p + .drop-cap {
+	text-indent: 0;
+	margin-top: 0;
+}
+
+html {
+	font: 400 100%/1.65 serif; /* base font size 18px with 1.65 line-height */
+}
+
+body {
+	word-wrap: break-word;
+}
+
+small {
+	font-size: 12px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	line-height: 1.4;
+	margin-top: 0;
+	text-rendering: optimizeLegibility;
+}
+
+.tera {
+	font-size: 117px;
+	font-size: 6.5rem; /* 117 / 18 = 6.5 */
+	margin-bottom: 0.25385em;
+}
+
+.giga {
+	font-size: 90px;
+	font-size: 5rem; /* 90 / 18 = 5 */
+	margin-bottom: 0.33em;
+}
+
+.mega {
+	font-size: 72px;
+	font-size: 4rem; /* 72 / 18 = 4 */
+	margin-bottom: 0.3em;
+	line-height: 1.1;
+}
+
+h1,
+.alpha {
+	font-size: 38px;
+}
+
+h2,
+.beta {
+	font-size: 28px;
+}
+
+h3,
+.gamma {
+	font-size: 22px;
+}
+
+h4,
+.delta {
+	font-size: 20px;
+}
+
+h5,
+.epsilon {
+	font-size: 18px;
+}
+
+h6,
+.zeta {
+	font-size: 16px;
+}
+
+p {
+	margin: auto auto 1.4em; /* bottom margin for paragraphs */
+}
+
+pre code {
+	word-wrap: normal;
+	white-space: -moz-pre-wrap;
+	white-space: pre-wrap; /* http://css-tricks.com/almanac/properties/w/whitespace */
+}
+
+pre {
+	white-space: pre;
+}
+
+code {
+	white-space: pre;
+}
+
+abbr {
+	font-variant: small-caps; /* https://developer.mozilla.org/en-US/docs/CSS/font-variant */
+	font-weight: 600;
+	text-transform: lowercase;
+}
+
+abbr:hover {
+	cursor: help; /* cursor changed to a question mark */
+}
