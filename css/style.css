@@ -987,6 +987,11 @@ ol.comments {
 	}
 
 }
+.padding-hs
+{
+    padding-left: 5px;
+    padding-right: 5px;
+}
 
 /*-----------------------------------------------------------------------------------*/
 /*	END RESPONSIVE STYLING
