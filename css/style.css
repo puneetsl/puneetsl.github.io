@@ -427,6 +427,7 @@ nav li li {
 	background: rgba(50,50,50, 0.8);
 	color: #f9f9f9;
 	margin-bottom: 50px;
+    border-radius: 50px;
 	-webkit-transition: background 300ms ease-in-out;
 	-moz-transition: background 300ms ease-in-out;
 	-ms-transition: background 300ms ease-in-out;
@@ -450,6 +451,7 @@ nav li li {
 	width: 100px;
 	height: 100px;
 	border: 2px solid #f9f9f9;
+    background-size: 100px 100px !important;
 	margin-right: 40px;
 	border-radius: 50%;
 }
@@ -870,7 +872,8 @@ ol.comments {
 
 /* All Mobile Sizes (devices and browser) */
 @media only screen and (max-width: 767px) {
-
+    
+    
 	.wrapper { width:479px; margin: 0 auto; position:relative; }
 	
 	.one_half, .one_third, .two_thirds, .one_fourth, .one_fifth, .two_fifth, .three_fifth, .four_fifth, .one_sixth, .five_sixth, .three_fourths { width: 100%; }
@@ -880,9 +883,13 @@ ol.comments {
 		width: 50%;
 	}
 	
+/*
+    Commenting this to not let the mobile screen hide these social icons
+    @puneet
 	#sub-header .social {
-		display: none;
+		float: left;
 	}
+*/
 	
 	#sub-logo {
 		display: block;

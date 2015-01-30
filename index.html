@@ -13,8 +13,28 @@
     <link rel="stylesheet" type="text/css" href="owlcarousel/owl.carousel.css">
     <link rel="stylesheet" type="text/css" href="owlcarousel/owl.theme.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/colorbox.css" />
     <!--Preloader Script, Added in Head for correct display-->
+    <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/preloader.js"></script>
+    <script type="text/javascript" src="js/jquery.colorbox-min.js"></script>
+    <script>
+			$(document).ready(function(){
+				$(".iframe").colorbox({iframe:true, width:"80%", height:"80%"});
+				//Example of preserving a JavaScript event for inline calls.
+                $(".callbacks").colorbox({
+					onOpen:function(){ alert('onOpen: colorbox is about to open'); },
+					onLoad:function(){ alert('onLoad: colorbox has started to load the targeted content'); },
+					onComplete:function(){ alert('onComplete: colorbox has displayed the loaded content'); },
+					onCleanup:function(){ alert('onCleanup: colorbox has begun the close process'); },
+					onClosed:function(){ alert('onClosed: colorbox has completely closed'); }
+				});
+				$("#click").click(function(){ 
+					$('#click').css({"background-color":"#f00", "color":"#fff", "cursor":"inherit"}).text("Open this window again and this message will still be here.");
+					return false;
+				});
+			});
+		</script>
 </head>
 
 	<body>
@@ -51,109 +71,134 @@
 						</ul>
 					</div>
 				</div>
-		<!-- 		<div id="view-more">
-					<a href="#portfolio">View My Work</a>
+		 		<div id="view-more">
+					<a href="#portfolio"><i class="fa fa-arrow-circle-down  fa-3x"></i></a>
 				</div>
-		 -->
+		 
 			</div>
+			<div class="clear"></div>
 		</section>
-	<!--	<header id="main">-->
-	<!--	<div class="wrapper">-->
+		<header id="main">
+		<div class="wrapper">
 
-	<!--		<div id="logo" class="one_fourth">-->
-	<!--			<a href="index.html">Puneet Singh</a>-->
-	<!--		</div>-->
+			<div id="logo" class="one_fourth">
+				<a href="#home">Puneet Singh</a>
+			</div>
+            
+			<div id="burger">
+				<i class="fa fa-bars"></i>
+			</div>
 
-	<!--		<div id="burger">-->
-	<!--			<i class="fa fa-bars"></i>-->
-	<!--		</div>-->
+			<div class="three_fourths last">
+				<nav>
+					<ul>
+						<li>
+							<a href="#home" class="scroller active">Home</a>
+						</li>
+                        <li>
+							<a href="http://blog.puneetsingh.info" class="scroller active">Blog</a>
+						</li>
+                        <li>
+							<a href="#projects" class="scroller active">Projects</a>
+						</li>
+                        <li>
+							<a href="#research" class="scroller active">Research</a>
+						</li>
+                        <li>
+							<a href="#" class="scroller active">Curriculum vitae</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
 
-	<!--		<div class="three_fourths last">-->
-	<!--			<nav>-->
-	<!--				<ul>-->
-	<!--					<li>-->
-	<!--						<a href="#home" class="scroller active">Home</a>-->
-	<!--					</li>-->
- <!--                       <li>-->
-	<!--						<a href="http://blog.puneetsingh.info" class="scroller active">Blog</a>-->
-	<!--					</li>-->
- <!--                       <li>-->
-	<!--						<a href="#projects" class="scroller active">Projects</a>-->
-	<!--					</li>-->
- <!--                       <li>-->
-	<!--						<a href="#research" class="scroller active">Research</a>-->
-	<!--					</li>-->
- <!--                       <li>-->
-	<!--						<a href="#" class="scroller active">Curriculum vitae</a>-->
-	<!--					</li>-->
-	<!--				</ul>-->
-	<!--			</nav>-->
-	<!--		</div>-->
+            <div class="clear">
+                <div class="social">
+						<a href="https://github.com/puneetsl/"><i class="fa fa-github fa-lg"></i></a>
+						<a href="http://twitter.com/puneetsl"><i class="fa fa-twitter"></i></a>
+						<a href="https://www.facebook.com/everlasting.puneet"><i class="fa fa-facebook"></i></a>
+						<a href="http://plus.google.com/109511640254906484107"><i class="fa fa-google-plus"></i></a>
+						<a href="http://in.linkedin.com/pub/puneet-singh/14/bbb/a58"><i class="fa fa-linkedin"></i></a>
+						<a href="http://500px.com/Puneet_Singh"><i class="fa fa-camera"></i></a>
+				</div>
+            </div>    
+            </div>
+	</header>
 
-	<!--		<div class="clear"></div><!--clear floats-->
+		<div class="offset"></div>
+    <section  id="portfolio" class="standard-section no-bottom">
+        <div class="wrapper">
+			
+			<div class="section-title">
+				<h3>Some of my Projects</h3>
+				<p><b>Below you will find a handful of my work that I've accomplished over the past few years. Each project has detailed descriptions and technology used.<br>(Click on the blobs to know more about these projects)</b></p>
+			</div>
+			<a class='iframe' href="http://www.wikipedia.com">
+                <div class="one_half service">
+<!--For later use style="background: url(img/quena.png) no-repeat;"-->
+                    <div class="service-icon" >
+                        <i class="fa fa-search"></i>
+                    </div>
 
-	<!--	</div>-->
-	<!--</header>-->
+                    <div class="service-content">
+                        <h5>Quena</h5>
+                        <p><b>An Automatic Question Answering system.</b></p>
+                        <p>Indexed 1.6 Million Wikipedia documents, designed a question parser and a ranking algorithm based on popularity.</p>
+                    </div>
 
-	<!--	<div class="offset"></div>-->
-	<!--<section id="portfolio" class="standard-section no-bottom">-->
-	<!--	<div class="wrapper">-->
-
-	<!--		<div class="section-title">-->
-	<!--			<h3>See My Work</h3>-->
-	<!--			<p>Here is a small list of the projects I completed, it includes: Coding, Android apps, Social media analytics, Photography etc. </p>-->
-	<!--		</div>-->
-	<!--		<ul id="filters">-->
-	<!--		<li>-->
-	<!--			<a href=".item" class="active">All</a>-->
-	<!--		</li>-->
-	<!--		<li>-->
-	<!--			<a href=".applications">Applications</a>-->
-	<!--		</li>-->
- <!--           <li>-->
-	<!--			<a href=".datamining">Data Mining</a>-->
-	<!--		</li>-->
- <!--           <li>-->
-	<!--			<a href=".machinelearning">Machine Learning</a>-->
-	<!--		</li>-->
-	<!--		<li>-->
-	<!--			<a href=".android">Android</a>-->
-	<!--		</li>-->
-	<!--		<li>-->
-	<!--			<a href=".web">Websites</a>-->
-	<!--		</li>-->
-
-	<!--		<li>-->
-	<!--			<a href=".photography">Photography</a>-->
-	<!--		</li>-->
-	<!--	</ul>-->
-
-	<!--	<div id="loader">-->
-	<!--		<div class="item"></div>-->
-	<!--	</div>-->
-	<!--	<div id="container">-->
-
-	<!--		<div class="item small applications web development datamining padding-hs">-->
- <!--               <a href="http://github.com/puneetsl/QuestionsAndAnswerSystem">-->
- <!--                   <img src="img/quena.jpg" alt="Portfolio Item" />-->
- <!--                   <div class="project-title">-->
- <!--                       <h6>Quena : A Question-Answering System</h6>-->
-	<!--			        <span>Data Mining, Information Retrieval, Web Design, Development</span>-->
- <!--                   </div>-->
- <!--               </a>-->
-	<!--		</div>-->
-
- <!--       </div>-->
-    <!--</div>-->
-
-
-
-	</section>
-		<!--LOAD SCRIPTS-->
-		<script type="text/javascript" src="js/jquery.js"></script>
+                </div>
+			</a>
+			<div class="one_half last service"><!--.last class because last column in row-->
+				
+				<div class="service-icon">
+					<i class="fa fa-html5"></i>
+				</div>
+				
+				<div class="service-content">
+					<h5>Rock Solid HTML5 / CSS3</h5>
+					<p>Aliquam lectus orci, adipiscing et, sodales ac, feugiat non, lacus. Ut dictum velit nec est. Quisque posuere, purus sit amet malesuada blandit, sapien.</p>
+				</div>
+				
+			</div>
+			
+			<div class="clear"></div><!--clear floats-->
+			
+			<div class="one_half service">
+				
+				<div class="service-icon">
+					<i class="fa fa-paperclip"></i>
+				</div>
+				
+				<div class="service-content">
+					<h5>Simple, Clear Code</h5>
+					<p>Aliquam lectus orci, adipiscing et, sodales ac, feugiat non, lacus. Ut dictum velit nec est. Quisque posuere, purus sit amet malesuada blandit, sapien.</p>
+				</div>
+				
+			</div>
+			
+			<div class="one_half last service"><!--.last class because last column in row-->
+				
+				<div class="service-icon">
+					<i class="fa fa-beer"></i>
+				</div>
+				
+				<div class="service-content">
+					<h5>Free Beer!</h5>
+					<p>Aliquam lectus orci, adipiscing et, sodales ac, feugiat non, lacus. Ut dictum velit nec est. Quisque posuere, purus sit amet malesuada blandit, sapien.</p>
+				</div>
+				
+			</div>
+			
+			<div class="clear"></div><!--clear floats-->
+			
+		</div>
+    </section>
+		<!--LOAD SCRIPTS -->
+        
+		
 		<script type="text/javascript" src="js/plugins.js"></script>
 		<script type="text/javascript" src="owlcarousel/owl.carousel.js"></script>
 		<script type="text/javascript" src="js/custom.js"></script>
+       
 
 	</body>
 </html>
