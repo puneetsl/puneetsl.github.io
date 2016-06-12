@@ -420,7 +420,7 @@ stopVideo.owl
 
 	/**
 	 * optionsLogic
-	 * @desc Update option logic if necessery
+	 * @desc Update option logic if necessary
 	 * @since 2.0.0
 	 */
 
@@ -1583,7 +1583,7 @@ stopVideo.owl
 
 	/**
 	 * internalEvents
-	 * @desc Checks for touch/mouse drag options and add necessery event handlers.
+	 * @desc Checks for touch/mouse drag options and add necessary event handlers.
 	 * @since 2.0.0
 	 */
 
