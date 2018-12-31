@@ -60,15 +60,15 @@
         <!-- Begin Menu -->
 
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                <a class="nav-link" href="http://www.puneetsingh.me"><i class="fas fa-home"></i> Home</a>
-                </li>
-
                 {% if page.url == "/" %}
                 <li class="nav-item active">
                 {% else %}
                 <li class="nav-item">
                 {% endif %}
+                <a class="nav-link" href="http://www.puneetsingh.me"><i class="fas fa-home"></i> Home</a>
+                </li>
+
+                <li class="nav-item">
                 <a class="nav-link" href="http://www.puneetsingh.me/blog/"><i class="fas fa-rss"></i> Blog</a>
                 </li>
 
@@ -80,19 +80,16 @@
                 <a class="nav-link" href="{{ site.baseurl }}/about"><i class="far fa-smile"></i> About</a>
                 </li>
 
-                {% if page.url == "/resume.html" %}
+                {% if page.url == "/resume" %}
                 <li class="nav-item active">
                 {% else %}
                 <li class="nav-item">
                 {% endif %}
                 <a class="nav-link" href="{{ site.baseurl }}/resume"><i class="far fa-id-card"></i> Resume</a>
                 </li>
-                {% if page.url == "/" %}
-                <li class="nav-item active">
-                {% else %}
+
                 <li class="nav-item">
-                {% endif %}
-                <a class="nav-link" href="{{ site.baseurl }}/thoughts"><i class="far fa-dot-circle"></i> Thoughts</a>
+                <a class="nav-link" href="http://www.puneetsingh.me/blog/thoughts"><i class="fas fa-dot-circle"></i> Blog</a>
                 </li>
 
                 <li class="nav-item">
