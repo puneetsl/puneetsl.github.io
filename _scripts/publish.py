@@ -1,12 +1,11 @@
-import PySimpleGUI as sg # pip install PySimpleGUI
 from sultan.api import Sultan
 import os
 def notify(fin):
     if str(fin).find("->") !=-1:
-        sg.Popup('Published Successfully')
+        print('Published Successfully')
         print(str(fin))
     else:
-        sg.Popup(str(fin))
+        print(str(fin))
 def run(command, print_command=True):
     with Sultan.load() as s:
         s.commands = [command]

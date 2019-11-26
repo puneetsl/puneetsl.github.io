@@ -1,8 +1,8 @@
-import PySimpleGUI as sg # pip install PySimpleGUI
 import datetime
 import os
 
-event, (post_title,) = sg.Window('Insert your post title'). Layout([[sg.Text('Post title')], [sg.Input()], [sg.OK(), sg.Cancel()] ]).Read()
+# event, (post_title,) = sg.Window('Insert your post title'). Layout([[sg.Text('Post title')], [sg.Input()], [sg.OK(), sg.Cancel()] ]).Read()
+post_title = input('Insert your post title: ')
 if post_title != "":
     d = datetime.datetime.today()
     d_text = d.strftime('%Y-%m-%d')
@@ -14,4 +14,4 @@ if post_title != "":
             f.write("")
         f.close()
     else:
-        sg.Popup('Blog already exists, choose a different name')
+        print('Blog already exists, choose a different name')

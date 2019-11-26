@@ -1,4 +1,3 @@
-import PySimpleGUI as sg
 from sultan.api import Sultan
 import os
 import datetime
@@ -16,7 +15,8 @@ def run(command, print_command=True):
         ret = stdout + stderr
     return ret
 
-event, (filename,) = sg.Window('Get iPython notebook file'). Layout([[sg.Text('Filename')], [sg.Input(), sg.FileBrowse()], [sg.OK(), sg.Cancel()] ]).Read()
+# event, (filename,) = sg.Window('Get iPython notebook file'). Layout([[sg.Text('Filename')], [sg.Input(), sg.FileBrowse()], [sg.OK(), sg.Cancel()] ]).Read()
+filename = input("Get iPython notebook file: ")
 if filename.endswith(".ipynb"):
     convert = "ipython nbconvert --to markdown "+filename+" --output-dir "+"./_posts/"
     d = datetime.datetime.today()
@@ -34,4 +34,4 @@ if filename.endswith(".ipynb"):
     f.write(st)
     f.close()
 else:
-    sg.Popup("Please chose an ipynb file to publish")
+    print("Please chose an ipynb file to publish")
