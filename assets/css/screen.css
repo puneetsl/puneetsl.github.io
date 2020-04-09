@@ -652,3 +652,7 @@ License: https://www.wowthemes.net/freebies-license/
  .card .img-fluid {
     width:100%;
 }
+
+.roundimg {
+    border-radius: 50%;
+}
