@@ -1,110 +1,242 @@
---- 
-layout: default 
-title: Home 
+---
+layout: default
+title: Home
 ---
 
-<div class="container jumbotron bg-light">
-    <div class="row">
-        <div class="col-md-8 bg-light">
-            <br>
-            Hey there! I am <strong>Puneet</strong>. 
-            <br>
-            <div class="text-justify">
-                I am a Machine Learning Engineer with a Master's degree in Computer Science and over nine years of experience. 
-                <br>I have a strong foundation in languages such as Python, Java, Perl, C/C++, C#, Matlab, bash, and javascript, as well as working knowledge of frameworks like Pyspark, Flask, Apache (Hadoop, Pig), Couchbase, AWS, and Keras. 
-                <br>Throughout my career, I have optimized pricing, developed speaker identification systems, extracted company names and key-people from websites, and identified duplicate documents in real-time. I am also passionate about working on personal projects that allow me to continuously improve my skills and expand my knowledge base.
+<link href="/assets/css/custom.css" rel="stylesheet">
+
+<!-- Hero Section -->
+<div class="container-fluid py-5 bg-gradient-primary">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h1 class="display-4 mb-4">Hey there! I'm <strong class="text-primary">Puneet</strong></h1>
+                <div class="lead mb-4">
+                    Senior Machine Learning Engineer at Zillow's Zestimate team, where I architect and lead the development of AI-powered real estate valuation systems. With over 11 years of experience across fintech, dating, and real estate domains, I specialize in building production-scale ML systems that drive business impact. From optimizing pricing algorithms that generated millions in revenue to developing real-time speaker identification systems, I thrive on transforming complex data challenges into scalable solutions.
+                    <div class="mt-3">
+                        <span class="badge bg-light text-dark me-2"><i class="fas fa-map-marker-alt text-primary"></i> New York</span>
+                        <span class="badge bg-light text-dark me-2"><i class="fas fa-graduation-cap text-primary"></i> MS Computer Science</span>
+                        <span class="badge bg-light text-dark"><i class="fas fa-code-branch text-primary"></i> Open Source Contributor</span>
+                    </div>
+                </div>
+                <div class="d-flex gap-3 mb-4">
+                    <a href="https://github.com/puneetsl" class="btn btn-outline-primary"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="https://www.linkedin.com/in/puneetsl" class="btn btn-outline-primary"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    <a href="https://www.kaggle.com/puneetsl" class="btn btn-outline-primary"><i class="fab fa-kaggle"></i> Kaggle</a>
+                </div>
             </div>
-            <br>
-            You can reach me via email: <strong>pludu@buffalo.edu</strong>. I'm always open to interesting conversations and collaboration.
-        </div>
-        <div class="col-md-4">
-            <img class="rounded-circle mx-auto d-block" src="/assets/images/profile.jpg" alt="Profile Picture">
-            
+            <div class="col-lg-4">
+                <img class="rounded-circle img-fluid shadow" src="/assets/images/profile.jpg" alt="Profile Picture">
+            </div>
         </div>
     </div>
 </div>
 
-<div class="container">
-    <div class="row d-flex justify-content-center">
-        <div class="menu-content  col-lg-7">
-            <div class="title text-center">
-                <h1 class="mb-10">Areas of Interest</h1>
-                <p>
-                    Take a look at some of the things I love working on.
-                </p>
+<!-- Skills Section -->
+<div class="container py-5">
+    <div class="text-center mb-5">
+        <h2 class="display-5">Technical Expertise</h2>
+        <p class="lead">Technologies I work with</p>
+    </div>
+    
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="fas fa-code fa-2x text-primary me-3"></i>
+                        <h4 class="card-title mb-0">Languages</h4>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="badge bg-primary">Python</span>
+                        <span class="badge bg-primary">Java</span>
+                        <span class="badge bg-primary">C/C++</span>
+                        <span class="badge bg-primary">Bash</span>
+                        <span class="badge bg-primary">JavaScript</span>
+                        <span class="badge bg-primary">SQL</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="fas fa-brain fa-2x text-primary me-3"></i>
+                        <h4 class="card-title mb-0">ML/AI</h4>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="badge bg-primary">PyTorch</span>
+                        <span class="badge bg-primary">TensorFlow</span>
+                        <span class="badge bg-primary">Keras</span>
+                        <span class="badge bg-primary">Scikit-learn</span>
+                        <span class="badge bg-primary">Kubeflow</span>
+                        <span class="badge bg-primary">Metaflow</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="fas fa-server fa-2x text-primary me-3"></i>
+                        <h4 class="card-title mb-0">Infrastructure</h4>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="badge bg-primary">AWS</span>
+                        <span class="badge bg-primary">Docker</span>
+                        <span class="badge bg-primary">Terraform</span>
+                        <span class="badge bg-primary">MongoDB</span>
+                        <span class="badge bg-primary">PySpark</span>
+                        <span class="badge bg-primary">FastAPI</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <hr>
+</div>
+
+<!-- Experience Timeline -->
+<div class="container py-5">
+    <div class="text-center mb-5">
+        <h2 class="display-5">Career Journey</h2>
+        <p class="lead">My professional experience and education</p>
+    </div>
+    
+    <div class="timeline">
+        <div class="timeline-item">
+            <div class="timeline-badge bg-primary">
+                <i class="fas fa-briefcase"></i>
+            </div>
+            <div class="timeline-content">
+                <h4>Machine Learning Engineer</h4>
+                <h5>Zillow (Zestimate) | 2021 - Present</h5>
+                <p>Leading the architecture and development of Zillow's next-gen valuation systems. Spearheaded the interactive CMA platform development and infrastructure modernization, achieving $500k annual cost savings. Mentoring team members and driving technical innovation across the organization.</p>
+            </div>
+        </div>
+        
+        <div class="timeline-item">
+            <div class="timeline-badge bg-primary">
+                <i class="fas fa-briefcase"></i>
+            </div>
+            <div class="timeline-content">
+                <h4>Machine Learning Engineer</h4>
+                <h5>OkCupid (Match.com) | 2020 - 2021</h5>
+                <p>Led end-to-end development of ML pricing optimization system, implementing sophisticated pricing models that drove 6% revenue increase through A/B testing. Owned the complete ML pipeline from feature engineering to production deployment.</p>
+            </div>
+        </div>
+        
+        <div class="timeline-item">
+            <div class="timeline-badge bg-primary">
+                <i class="fas fa-briefcase"></i>
+            </div>
+            <div class="timeline-content">
+                <h4>Machine Learning Engineer</h4>
+                <h5>FactSet | 2015 - 2020</h5>
+                <p>Architected multiple ML systems including real-time speaker identification for earnings calls, automated company information extraction from 1.6M websites, and near-duplicate document detection service. Reduced compute time by 66% and pioneered new search ranking algorithms.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-badge bg-primary">
+                <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div class="timeline-content">
+                <h4>Master of Science in Computer Science</h4>
+                <h5>State University of New York, Buffalo | 2014</h5>
+                <p>Focused on Machine Learning and Natural Language Processing. Published research on user attribute inference and social network analysis.</p>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-badge bg-primary">
+                <i class="fas fa-briefcase"></i>
+            </div>
+            <div class="timeline-content">
+                <h4>ML Research Engineer</h4>
+                <h5>Tata Research Development and Design Centre | 2011 - 2013</h5>
+                <p>Developed novel algorithms for time series pattern detection achieving 7% accuracy improvement over existing methods. Built an ETL framework for real-time enterprise data harmonization using MapReduce paradigm.</p>
+            </div>
+        </div>
+
+
+
+        <div class="timeline-item">
+            <div class="timeline-badge bg-primary">
+                <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div class="timeline-content">
+                <h4>B.Tech in Computer Science and Engineering</h4>
+                <h5>JIIT, India | 2010</h5>
+                <p>Foundation in Computer Science and Software Engineering. Published research on automated music mood classification.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Projects Section -->
+<div class="container py-5">
+    <div class="text-center mb-5">
+        <h2 class="display-5">Notable Projects</h2>
+        <p class="lead">Some of my impactful work</p>
+    </div>
+    
+    <div class="row g-4">
+        <div class="col-md-6">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body">
+                    <h4>Lotion</h4>
+                    <p class="text-muted">Unofficial Notion.so Desktop app for Linux</p>
+                    <p>2K+ GitHub stars / 60K+ Clones & Downloads</p>
+                    <div class="mt-3">
+                        <span class="badge bg-secondary">Electron</span>
+                        <span class="badge bg-secondary">JavaScript</span>
+                        <span class="badge bg-secondary">Linux</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body">
+                    <h4>Romadeva</h4>
+                    <p class="text-muted">Roman to Devanagari script converter</p>
+                    <p>Used by Translators Without Borders</p>
+                    <div class="mt-3">
+                        <span class="badge bg-secondary">NLP</span>
+                        <span class="badge bg-secondary">Python</span>
+                        <span class="badge bg-secondary">Linguistics</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Publications Section -->
+<div class="container py-5">
+    <div class="text-center mb-5">
+        <h2 class="display-5">Research Publications</h2>
+        <p class="lead">My contributions to academic research</p>
+    </div>
+    
     <div class="row">
-        <div class="col-lg-4 col-md-6 bg-light rounded">
-            <div class="single-services mt-3">
-                <i class="fas fa-brain fa-3x mb-3"></i>
-                <a>
-                    <h4>Machine Learning</h4>
-                </a>
-                <p>
-                    I am deeply passionate about the field of Machine Learning and its use for doing good! One of my hobbies is to read papers and blogs about latest and greatest in the field and how is it helping people to advance in the toughest problems of the world.
-                </p>
+        <div class="col-12">
+            <div class="card mb-4 border-0 shadow-sm">
+                <div class="card-body">
+                    <h5>Inferring Latent Attributes of an Indian Twitter user using Celebrities and Class Influencers</h5>
+                    <p class="text-muted">ACM Hypertext 2015</p>
+                </div>
             </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 rounded">
-            <div class="single-services mt-3">
-                <i class="fas fa-comments fa-3x mb-3"></i>
-                <a>
-                    <h4>Natural Language Processing</h4>
-                </a>
-                <p>
-                    I have always enjoyed observing human behavior and trying to make sense of our interactions with one another. Most of my professional experience is related to understanding natural language to develop and productionize Text Classification, Data/Entity
-                    extraction, Near Duplicate Identification algorithms.
-                </p>
-            </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 bg-light rounded">
-            <div class="single-services mt-3">
-                <i class="fas fa-cloud fa-3x mb-3"></i>
-                <a>
-                    <h4>Cloud Computing</h4>
-                </a>
-                <p>
-                    I maintain servers for database storage, model training, and model deployment. Most of my cloud experience is with Amazon AWS.
-                </p>
-            </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 rounded">
-            <div class="single-services mt-3">
-                <i class="fas fa-database fa-3x mb-3"></i>
-                <a>
-                    <h4>Big Data Computing</h4>
-                </a>
-                <p>
-                    When the data is huge and the laptop is just not enough, I switch to PySpark. <br> I <i class="fas fa-heart"></i> <a href="https://databricks.com/">Databricks</a>!
-                </p>
-            </div>
-        </div>
-        <div class="col-lg-4 col-md-6 bg-light rounded">
-            <div class="single-services mt-3">
-                <i class="fas fa-puzzle-piece fa-3x mb-3"></i>
-                <a>
-                    <h4>Model Deployment</h4>
-                </a>
-                <p>
-                    I implement machine learning models in real world production systems using REST APIs.
-                </p>
-            </div>
-        </div>
-        <div class="col-lg-4 col-md-6 rounded">
-            <div class="single-services mt-3">
-                <i class="fas fa-code-branch fa-3x mb-3"></i>
-                <a>
-                    <h4>Side Projects</h4>
-                </a>
-                <p>
-                    When I see a problem which is not even related to Machine Learning, I try to implement solution and opensource it. Whenever possible, I try to contribute to opensource projects as well.
-                </p>
+            
+            <div class="card mb-4 border-0 shadow-sm">
+                <div class="card-body">
+                    <h5>Architecture for Automated Tagging and Clustering of Song Files According to Mood</h5>
+                    <p class="text-muted">IJCSI, 2010</p>
+                </div>
             </div>
         </div>
     </div>
