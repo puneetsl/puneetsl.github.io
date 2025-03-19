@@ -10,20 +10,9 @@ ruby RUBY_VERSION
 
 # If you have any plugins, put them here!
 gem 'wdm', '>= 0.1.0' if Gem.win_platform?
-gem 'jekyll'
-gem 'jekyll-feed'
-gem 'jekyll-sitemap'
-gem 'jekyll-paginate'
-gem 'jekyll-seo-tag'
-gem 'jekyll-archives'
-gem 'jekyll-katex'  # For math rendering
-gem 'rouge'         # For syntax highlighting
-gem 'kramdown'      # For markdown processing
-gem 'webrick'       # Required for Ruby >= 3.0
-
 group :jekyll_plugins do
-    gem 'jekyll-mermaid'
+    gem 'jekyll-feed'
+    gem 'jekyll-sitemap'
+    gem 'jekyll-archives'
+    gem 'jekyll-paginate'
 end
-
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

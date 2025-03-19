@@ -157,6 +157,17 @@ body {
     background-color: var(--card-bg);
     color: var(--text-color);
 }
+
+/* Logo styles */
+.navbar-brand img {
+    height: 40px;
+    width: auto;
+    transition: filter 0.3s ease;
+}
+
+[data-theme="dark"] .navbar-brand img {
+    filter: invert(1) brightness(2);
+}
 </style>
 </head>
 

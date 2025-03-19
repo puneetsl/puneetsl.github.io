@@ -22,11 +22,16 @@ comments: false
 
 	<!-- Charts Section -->
 	<section class="charts-section" style="margin: 2rem 0;">
-		<div class="charts-container" style="display: flex; gap: 2rem; justify-content: space-between; margin-top: 2rem;">
-			<div class="chart-wrapper" style="flex: 1; min-height: 400px;">
+		<div style="display: flex; justify-content: flex-end; margin-bottom: 1rem;">
+			<button id="toggleEvolutionView" class="toggle-button">
+				<i class="fas fa-expand-alt"></i> Show Detailed View
+			</button>
+		</div>
+		<div class="charts-container" style="display: flex; gap: 2rem; justify-content: space-between;">
+			<div class="chart-wrapper" style="flex: 1;">
 				<canvas id="currentResponsibilities"></canvas>
 			</div>
-			<div class="chart-wrapper" style="flex: 1; min-height: 400px;">
+			<div class="chart-wrapper" style="flex: 1;">
 				<canvas id="evolutionChart"></canvas>
 			</div>
 		</div>
@@ -200,6 +205,10 @@ comments: false
 	padding: 1rem;
 	border-radius: 8px;
 	box-shadow: var(--card-shadow);
+	height: 400px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .profile-card {
@@ -253,15 +262,6 @@ comments: false
     flex-wrap: wrap;
     gap: 2rem;
     margin: 2rem 0;
-}
-
-.chart-wrapper {
-    flex: 1;
-    min-width: 300px;
-    padding: 2rem;
-    background: var(--card-bg);
-    border-radius: 15px;
-    box-shadow: var(--card-shadow);
 }
 
 .chart-wrapper h3 {
@@ -353,6 +353,25 @@ canvas {
 [data-theme="light"] .resume-button {
     background-color: var(--link-color);
 }
+
+.toggle-button {
+    padding: 0.4rem 0.8rem;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    color: var(--text-color);
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+}
+
+.toggle-button:hover {
+    background-color: var(--border-color);
+}
+
+.toggle-button i {
+    margin-right: 0.5rem;
+}
 </style>
 
 <script>
@@ -367,75 +386,103 @@ function getChartConfig() {
     };
 }
 
+// Evolution Chart Data
+const detailedData = {
+    labels: ['2011', '2013', '2015', '2017', '2019', '2021', '2023', '2025'],
+    datasets: [{
+        label: 'Coding',
+        data: [40, 35, 30, 25, 20, 15, 12, 10],
+        borderColor: '#FF6384',
+        backgroundColor: '#FF6384'
+    }, {
+        label: 'Architecture',
+        data: [8, 12, 15, 20, 25, 30, 30, 30],
+        borderColor: '#36A2EB',
+        backgroundColor: '#36A2EB'
+    }, {
+        label: 'MLOps',
+        data: [12, 15, 18, 20, 20, 18, 15, 15],
+        borderColor: '#FFCE56',
+        backgroundColor: '#FFCE56'
+    }, {
+        label: 'Modeling',
+        data: [25, 22, 20, 18, 15, 15, 12, 10],
+        borderColor: '#4BC0C0',
+        backgroundColor: '#4BC0C0'
+    }, {
+        label: 'Data',
+        data: [10, 10, 10, 10, 10, 10, 10, 10],
+        borderColor: '#9966FF',
+        backgroundColor: '#9966FF'
+    }, {
+        label: 'Leadership',
+        data: [5, 6, 7, 7, 10, 12, 13, 15],
+        borderColor: '#FF9F40',
+        backgroundColor: '#FF9F40'
+    }, {
+        label: 'Prompt Engineering',
+        data: [0, 0, 0, 0, 0, 0, 8, 10],
+        borderColor: '#8AC24A',
+        backgroundColor: '#8AC24A'
+    }]
+};
+
+const simplifiedData = {
+    labels: ['2011', '2013', '2015', '2017', '2019', '2021', '2023', '2025'],
+    datasets: [{
+        label: 'Technical Implementation',
+        data: detailedData.datasets.reduce((acc, dataset) => {
+            if (['Coding', 'Modeling', 'Data'].includes(dataset.label)) {
+                dataset.data.forEach((val, i) => {
+                    acc[i] = (acc[i] || 0) + val;
+                });
+            }
+            return acc;
+        }, []),
+        borderColor: '#FF6384',
+        backgroundColor: '#FF6384'
+    }, {
+        label: 'Architecture & Infrastructure',
+        data: detailedData.datasets.reduce((acc, dataset) => {
+            if (['Architecture', 'MLOps'].includes(dataset.label)) {
+                dataset.data.forEach((val, i) => {
+                    acc[i] = (acc[i] || 0) + val;
+                });
+            }
+            return acc;
+        }, []),
+        borderColor: '#36A2EB',
+        backgroundColor: '#36A2EB'
+    }, {
+        label: 'Leadership & Innovation',
+        data: detailedData.datasets.reduce((acc, dataset) => {
+            if (['Leadership', 'Prompt Engineering'].includes(dataset.label)) {
+                dataset.data.forEach((val, i) => {
+                    acc[i] = (acc[i] || 0) + val;
+                });
+            }
+            return acc;
+        }, []),
+        borderColor: '#FF9F40',
+        backgroundColor: '#FF9F40'
+    }]
+};
+
 // Evolution Chart
+let isDetailedView = false;
 const evolutionCtx = document.getElementById('evolutionChart').getContext('2d');
-function createEvolutionChart() {
+
+function createEvolutionChart(isDetailed) {
     const config = getChartConfig();
+    const chartData = isDetailed ? detailedData : simplifiedData;
+    
     return new Chart(evolutionCtx, {
         type: 'line',
-        data: {
-            labels: ['2011', '2013', '2015', '2017', '2019', '2021', '2023', '2025'],
-            datasets: [{
-                label: 'Coding',
-                data: [35, 30, 25, 20, 18, 15, 12, 10],
-                borderColor: '#FF6384',
-                backgroundColor: '#FF6384',
-                borderWidth: 3,
-                pointRadius: 4,
-                tension: 0.4
-            }, {
-                label: 'Architecture',
-                data: [8, 12, 15, 20, 25, 28, 30, 32],
-                borderColor: '#36A2EB',
-                backgroundColor: '#36A2EB',
-                borderWidth: 3,
-                pointRadius: 4,
-                tension: 0.4
-            }, {
-                label: 'MLOps',
-                data: [12, 15, 18, 20, 20, 18, 15, 15],
-                borderColor: '#FFCE56',
-                backgroundColor: '#FFCE56',
-                borderWidth: 3,
-                pointRadius: 4,
-                tension: 0.4
-            }, {
-                label: 'Modeling',
-                data: [25, 22, 20, 18, 15, 12, 10, 10],
-                borderColor: '#4BC0C0',
-                backgroundColor: '#4BC0C0',
-                borderWidth: 3,
-                pointRadius: 4,
-                tension: 0.4
-            }, {
-                label: 'Data',
-                data: [10, 10, 10, 10, 10, 10, 10, 10],
-                borderColor: '#9966FF',
-                backgroundColor: '#9966FF',
-                borderWidth: 3,
-                pointRadius: 4,
-                tension: 0.4
-            }, {
-                label: 'Leadership',
-                data: [5, 6, 7, 8, 10, 12, 15, 15],
-                borderColor: '#FF9F40',
-                backgroundColor: '#FF9F40',
-                borderWidth: 3,
-                pointRadius: 4,
-                tension: 0.4
-            }, {
-                label: 'Prompt Engineering',
-                data: [0, 0, 0, 0, 0, 0, 8, 12],
-                borderColor: '#8AC24A',
-                backgroundColor: '#8AC24A',
-                borderWidth: 3,
-                pointRadius: 4,
-                tension: 0.4
-            }]
-        },
+        data: chartData,
         options: {
             responsive: true,
-            maintainAspectRatio: false,
+            maintainAspectRatio: true,
+            aspectRatio: 1.5,
             plugins: {
                 title: {
                     display: true,
@@ -468,19 +515,29 @@ function createEvolutionChart() {
                     borderColor: config.borderColor,
                     borderWidth: 1,
                     padding: 10,
-                    boxPadding: 4
+                    boxPadding: 4,
+                    callbacks: {
+                        afterBody: function(context) {
+                            const yearIndex = context[0].dataIndex;
+                            let total = 0;
+                            context.forEach(item => {
+                                total += item.raw;
+                            });
+                            return `\nTotal: ${total}%`;
+                        }
+                    }
                 }
             },
             scales: {
                 y: {
                     min: 0,
-                    max: 40,
+                    max: 80,
                     grid: {
                         color: config.gridColor,
                         drawBorder: false
                     },
                     ticks: {
-                        stepSize: 10,
+                        stepSize: 20,
                         callback: function(value) {
                             return value + '%';
                         },
@@ -515,25 +572,23 @@ function createCurrentChart() {
         data: {
             labels: [
                 'Architecture (30%)',
-                'Leadership (15%)',
                 'MLOps (15%)',
-                'Prompt Engineering (12%)',
+                'Leadership (15%)',
+                'Prompt Engineering (10%)',
                 'Coding (10%)',
-                'Modeling (8%)',
-                'Data (5%)',
-                'Strategy (5%)'
+                'Modeling (10%)',
+                'Data (10%)'
             ],
             datasets: [{
-                data: [30, 15, 15, 12, 10, 8, 5, 5],
+                data: [30, 15, 15, 10, 10, 10, 10],
                 backgroundColor: [
-                    '#36A2EB',
-                    '#FF9F40',
-                    '#FFCE56',
-                    '#8AC24A',
-                    '#FF6384',
-                    '#9966FF',
-                    '#4BC0C0',
-                    '#FF6384'
+                    '#36A2EB',  // Architecture - Blue
+                    '#FFCE56',  // MLOps - Yellow
+                    '#FF9F40',  // Leadership - Orange
+                    '#8AC24A',  // Prompt Engineering - Green
+                    '#FF6384',  // Coding - Red
+                    '#9966FF',  // Modeling - Purple
+                    '#4BC0C0'   // Data - Teal
                 ],
                 borderColor: config.backgroundColor,
                 borderWidth: 2
@@ -541,11 +596,12 @@ function createCurrentChart() {
         },
         options: {
             responsive: true,
-            maintainAspectRatio: false,
+            maintainAspectRatio: true,
+            aspectRatio: 1.5,
             plugins: {
                 title: {
                     display: true,
-                    text: 'Current Role Focus',
+                    text: 'Current Role Distribution',
                     font: {
                         size: 16,
                         weight: 'bold'
@@ -583,27 +639,47 @@ function createCurrentChart() {
 }
 
 // Initialize charts
-let evolutionChart = createEvolutionChart();
+let evolutionChart = createEvolutionChart(isDetailedView);
 let currentChart = createCurrentChart();
 
-// Update charts when theme changes
+// Toggle button functionality
+document.getElementById('toggleEvolutionView').addEventListener('click', function() {
+    isDetailedView = !isDetailedView;
+    this.innerHTML = isDetailedView ? 
+        '<i class="fas fa-compress-alt"></i> Show Simplified View' : 
+        '<i class="fas fa-expand-alt"></i> Show Detailed View';
+    
+    evolutionChart.destroy();
+    evolutionChart = createEvolutionChart(isDetailedView);
+});
+
+// Theme observer
 const themeObserver = new MutationObserver(function(mutations) {
     mutations.forEach(function(mutation) {
         if (mutation.attributeName === 'data-theme') {
-            // Destroy existing charts
             evolutionChart.destroy();
             currentChart.destroy();
             
-            // Create new charts with updated theme
-            evolutionChart = createEvolutionChart();
+            evolutionChart = createEvolutionChart(isDetailedView);
             currentChart = createCurrentChart();
         }
     });
 });
 
-// Start observing theme changes
 themeObserver.observe(document.documentElement, {
     attributes: true,
     attributeFilter: ['data-theme']
 });
+
+const data = {
+    '2025': {
+        'Coding': 10,
+        'Architecture': 30,
+        'MLOps': 15,
+        'Modeling': 10,
+        'Data': 10,
+        'Leadership': 15,
+        'Prompt Engineering': 10
+    }
+};
 </script>

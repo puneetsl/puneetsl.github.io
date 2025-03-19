@@ -5,6 +5,13 @@
 	display: inline;
 }
 
+// Logo dark mode handling
+[data-theme="dark"] {
+	.navbar-brand img {
+		filter: invert(1) brightness(2);
+	}
+}
+
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import "syntax"
 ;
