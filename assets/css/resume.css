@@ -1,0 +1,176 @@
+/* Resume Styles */
+.resume-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    color: var(--text-primary);
+    background: var(--section-bg);
+    border-radius: 12px;
+}
+
+.resume-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.resume-header h1 {
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+.contact-info,
+.social-links {
+    margin: 0.5rem 0;
+    color: var(--text-secondary);
+}
+
+.social-link {
+    color: var(--link-color);
+    text-decoration: none;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.social-link:hover {
+    color: var(--primary-hover);
+    background: var(--tech-stack-bg);
+}
+
+.resume-section {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+}
+
+.resume-section h2 {
+    color: var(--text-primary);
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.resume-section h2 i {
+    margin-right: 0.5rem;
+    color: var(--primary-color);
+}
+
+.education-item,
+.experience-item {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: var(--section-bg);
+    border-radius: 8px;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.skill-category h3 {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.skill-category h3 i {
+    margin-right: 0.5rem;
+    color: var(--primary-color);
+}
+
+.skill-tags {
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.role-header {
+    margin-bottom: 1rem;
+}
+
+.company-info {
+    color: var(--text-secondary);
+    margin: 0.5rem 0;
+}
+
+.company-info i {
+    margin-right: 0.25rem;
+    color: var(--primary-color);
+}
+
+.tech-stack {
+    display: inline-block;
+    background: var(--tech-stack-bg);
+    color: var(--tech-stack-text);
+    padding: 0.4rem 0.8rem;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+}
+
+.tech-stack i {
+    margin-right: 0.25rem;
+}
+
+.impact {
+    color: var(--text-secondary);
+    background: var(--tech-stack-bg);
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+    border-left: 3px solid var(--primary-color);
+}
+
+.project {
+    margin-bottom: 1.5rem;
+}
+
+.project h4 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.project h4 i {
+    margin-right: 0.5rem;
+}
+
+.publications-list,
+.projects-list {
+    display: grid;
+    gap: 1rem;
+}
+
+.publication,
+.project-item {
+    padding: 1rem;
+    background: var(--section-bg);
+    border-radius: 8px;
+}
+
+.publication-venue {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-top: 0.25rem;
+}
+
+.publication-venue i {
+    margin-right: 0.25rem;
+    color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+    .resume-container {
+        padding: 1rem;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+}

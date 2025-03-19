@@ -4,17 +4,61 @@ Copyright: Sal, WowThemes.net, https://www.wowthemes.net
 Version: 1.0.22 
 License: https://www.wowthemes.net/freebies-license/ 
 */
+
+:root {
+    /* Light theme */
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --link-color: #00ab6b;
+    --link-hover: #038252;
+    --code-bg: #F7FAFB;
+    --code-border: #E3EDF3;
+    --nav-bg: rgba(255, 255, 255, .97);
+    --nav-shadow: rgba(0, 0, 0, .15);
+    --border-color: rgba(0, 0, 0, .125);
+    --text-muted: rgba(0, 0, 0, .44);
+    --blockquote-color: rgba(0, 0, 0, .5);
+    --blockquote-border: #00ab6b;
+    --tag-bg: rgba(0, 0, 0, .05);
+    --tag-color: rgba(0, 0, 0, .6);
+    --tag-hover: rgba(0, 0, 0, .07);
+    --footer-border: rgba(0, 0, 0, .05);
+    --alertbar-bg: #fff;
+    --alertbar-shadow: rgba(0, 0, 0, .0785);
+}
+
+[data-theme="dark"] {
+    --bg-color: #1a1a1a;
+    --text-color: #ffffff;
+    --link-color: #66b0ff;
+    --link-hover: #77bbff;
+    --code-bg: #2d2d2d;
+    --code-border: #404040;
+    --nav-bg: rgba(45, 45, 45, .97);
+    --nav-shadow: rgba(0, 0, 0, .3);
+    --border-color: rgba(255, 255, 255, .125);
+    --text-muted: rgba(255, 255, 255, .6);
+    --blockquote-color: rgba(255, 255, 255, .7);
+    --blockquote-border: #66b0ff;
+    --tag-bg: rgba(255, 255, 255, .1);
+    --tag-color: rgba(255, 255, 255, .8);
+    --tag-hover: rgba(255, 255, 255, .15);
+    --footer-border: rgba(255, 255, 255, .1);
+    --alertbar-bg: #2d2d2d;
+    --alertbar-shadow: rgba(0, 0, 0, .2);
+}
+
 .mainheading {
     padding: 1rem 0rem;
 }
 
 a {
-    color: #00ab6b;
+    color: var(--link-color);
     transition: all 0.2s;
 }
 
 a:hover {
-    color: #038252;
+    color: var(--link-hover);
     text-decoration: none;
 }
 
@@ -22,20 +66,21 @@ pre {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     margin: 0 0 1.75em 0;
-    border: #E3EDF3 1px solid;
+    border: var(--code-border) 1px solid;
     width: 100%;
     padding: 10px;
     font-family: monospace, sans-serif;
     font-size: 14px;
     white-space: pre;
     overflow: auto;
-    background: #F7FAFB;
+    background: var(--code-bg);
     border-radius: 3px;
+    color: var(--text-color);
 }
 
 .mediumnavigation {
-    background: rgba(255, 255, 255, .97);
-    box-shadow: 0 2px 2px -2px rgba(0, 0, 0, .15);
+    background: var(--nav-bg);
+    box-shadow: 0 2px 2px -2px var(--nav-shadow);
     transition: top 0.2s ease-in-out;
 }
 
@@ -48,6 +93,7 @@ pre {
     padding-top: 1.5rem;
     margin-top: 57px;
     transition: all 0.4s;
+    background-color: var(--bg-color);
 }
 
 section {
@@ -59,15 +105,16 @@ section.recent-posts {
 }
 
 .section-title h2 {
-    border-bottom: 1px solid rgba(0, 0, 0, .125);
+    border-bottom: 1px solid var(--border-color);
     margin-bottom: 25px;
     font-weight: 700;
     font-size: 1.4rem;
     margin-bottom: 27px;
+    color: var(--text-color);
 }
 
 .section-title span {
-    border-bottom: 1px solid rgba(0, 0, 0, .44);
+    border-bottom: 1px solid var(--border-color);
     display: inline-block;
     padding-bottom: 20px;
     margin-bottom: -1px;
@@ -100,7 +147,7 @@ section.recent-posts {
 }
 
 .listfeaturedtag {
-    border: 1px solid rgba(0, 0, 0, .125);
+    border: 1px solid var(--border-color);
     border-radius: .25rem;
     transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
 }
@@ -144,7 +191,7 @@ section.recent-posts {
 
 .listfeaturedtag h4.card-text,
 .listrecent h4.card-text {
-    color: rgba(0, 0, 0, .44);
+    color: var(--text-muted);
     font-size: 0.95rem;
     line-height: 1.4;
     font-weight: 400;
@@ -177,7 +224,7 @@ section.recent-posts {
 
 .post-top-meta span {
     font-size: 0.9rem;
-    color: rgba(0, 0, 0, .44);
+    color: var(--text-muted);
     display: inline-block;
 }
 
@@ -202,7 +249,7 @@ span.author-meta {
 
 span.post-date,
 span.post-read {
-    color: rgba(0, 0, 0, .44);
+    color: var(--text-muted);
 }
 
 span.post-read-more {
@@ -213,12 +260,12 @@ span.post-read-more {
 }
 
 span.post-read-more a {
-    color: rgba(0, 0, 0, .44);
+    color: var(--text-muted);
 }
 
 span.post-name a,
 span.post-read-more a:hover {
-    color: rgba(0, 0, 0, .8);
+    color: var(--text-color);
 }
 
 .dot:after {
@@ -231,7 +278,7 @@ span.post-read-more a:hover {
     font-size: 0.8rem;
     border-radius: 30px;
     overflow: hidden;
-    border: 1px solid rgba(0, 0, 0, 0.04);
+    border: 1px solid var(--border-color);
 }
 
 .mediumnavigation .form-inline {
@@ -256,7 +303,7 @@ span.post-read-more a:hover {
 }
 
 .mediumnavigation .dropdown-menu {
-    border: 1px solid rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--border-color);
     margin: .5rem 0 0;
 }
 
@@ -287,33 +334,33 @@ span.post-read-more a:hover {
 }
 
 .footer {
-    border-top: 1px solid rgba(0, 0, 0, .05) !important;
+    border-top: 1px solid var(--footer-border) !important;
     padding-top: 15px;
     padding-bottom: 12px;
     font-size: 0.8rem;
-    color: rgba(0, 0, 0, .44);
+    color: var(--text-muted);
     margin-top: 50px;
     margin-bottom: 62px;
     position: relative;
-    background: #fff;
+    background: var(--bg-color);
 }
 
 .link-dark {
-    color: rgba(0, 0, 0, .8);
+    color: var(--text-color);
 }
 
 .article-post {
     font-family: Merriweather;
     font-size: 1.1rem;
     line-height: 1.84;
-    color: rgba(0, 0, 0, .8);
+    color: var(--text-color);
 }
 
 blockquote {
-    border-left: 4px solid #00ab6b;
+    border-left: 4px solid var(--blockquote-border);
     padding: 0 20px;
     font-style: italic;
-    color: rgba(0, 0, 0, .5);
+    color: var(--blockquote-color);
 }
 
 .article-post p,
@@ -458,8 +505,8 @@ blockquote {
 
 .share,
 .share a {
-    color: rgba(0, 0, 0, .44);
-    fill: rgba(0, 0, 0, .44);
+    color: var(--text-muted);
+    fill: var(--text-muted);
 }
 
 .graybg {
@@ -485,14 +532,14 @@ ul.tags li {
 }
 
 ul.tags li a {
-    background: rgba(0, 0, 0, .05);
-    color: rgba(0, 0, 0, .6);
+    background: var(--tag-bg);
+    color: var(--tag-color);
     border-radius: 3px;
     padding: 5px 10px;
 }
 
 ul.tags li a:hover {
-    background: rgba(0, 0, 0, .07);
+    background: var(--tag-hover);
     text-decoration: none;
 }
 
@@ -536,11 +583,11 @@ ul.tags li a:hover {
 }
 
 .alertbar {
-    box-shadow: 0 -3px 10px 0 rgba(0, 0, 0, .0785);
+    box-shadow: 0 -3px 10px 0 var(--alertbar-shadow);
     position: fixed;
     bottom: 0;
     left: 0;
-    background-color: #fff;
+    background-color: var(--alertbar-bg);
     width: 100%;
     padding: 14px 0;
     z-index: 1;
@@ -556,12 +603,14 @@ ul.tags li a:hover {
     padding: 3px 5px 3px 10px;
     border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
-    border: 1px solid #ddd;
+    border: 1px solid var(--border-color);
     border-right: 0;
     margin-right: -10px;
     height: 34px;
     letter-spacing: 0.5px;
     margin-left: 5px;
+    color: var(--text-color);
+    background-color: var(--bg-color);
 }
 
 .alertbar input[type="submit"] {
@@ -580,24 +629,12 @@ ul.tags li a:hover {
     cursor: pointer;
 }
 
-.form-control::-webkit-input-placeholder {
-    color: rgba(0, 0, 0, .5);
-}
-
-.form-control:-moz-placeholder {
-    color: rgba(0, 0, 0, .5);
-}
-
-.form-control::-moz-placeholder {
-    color: rgba(0, 0, 0, .5);
-}
-
-.form-control:-ms-input-placeholder {
-    color: rgba(0, 0, 0, .5);
-}
-
+.form-control::-webkit-input-placeholder,
+.form-control:-moz-placeholder,
+.form-control::-moz-placeholder,
+.form-control:-ms-input-placeholder,
 .form-control::-ms-input-placeholder {
-    color: rgba(0, 0, 0, .5);
+    color: var(--text-muted);
 }
 
 .authorpage h1 {
@@ -611,7 +648,7 @@ ul.tags li a:hover {
 
 .authorpage .author-description {
     font-size: 1rem;
-    color: rgba(0, 0, 0, .6);
+    color: var(--text-muted);
 }
 
 .post-top-meta.authorpage .btn.follow {

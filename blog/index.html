@@ -1,0 +1,206 @@
+---
+layout: default
+title: Blog
+---
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="font-weight-bold">Blog</h1>
+            <p class="text-muted">Thoughts on Machine Learning, System Design, and Technology</p>
+        </div>
+    </div>
+    
+    <div class="row">
+        {% for post in paginator.posts %}
+        <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card h-100">
+                {% if post.image %}
+                <img class="card-img-top" src="/{{ post.image }}" alt="{{ post.title }}">
+                {% endif %}
+                <div class="card-body">
+                    <h2 class="card-title h4">
+                        <a class="text-dark" href="/{{ post.url }}">{{ post.title }}</a>
+                    </h2>
+                    <p class="card-text text-muted">{{ post.description | truncate: 100 }}</p>
+                    
+                    <!-- Categories -->
+                    <div class="mb-2">
+                        {% for category in post.categories %}
+                        <a href="/category/{{ category | slugify }}/" class="category-badge">{{ category }}</a>
+                        {% endfor %}
+                    </div>
+                    
+                    <!-- Post metadata -->
+                    <div class="d-flex justify-content-between align-items-center mt-3">
+                        <div class="post-meta">
+                            <small class="text-muted">
+                                {{ post.date | date: '%b %d, %Y' }}
+                            </small>
+                        </div>
+                        <a href="{{ post.url }}" class="btn btn-sm btn-primary">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    
+    <!-- Pagination -->
+    {% if paginator.total_pages > 1 %}
+    <div class="row">
+        <div class="col-md-12">
+            <nav aria-label="Page navigation" class="mt-4">
+                <ul class="pagination justify-content-center">
+                    {% if paginator.previous_page %}
+                    <li class="page-item">
+                        <a class="page-link" href="{{ paginator.previous_page_path | prepend: site.baseurl }}">&laquo; Previous</a>
+                    </li>
+                    {% endif %}
+                    
+                    {% for page in (1..paginator.total_pages) %}
+                    <li class="page-item {% if page == paginator.page %}active{% endif %}">
+                        {% if page == 1 %}
+                        <a class="page-link" href="/blog/">{{ page }}</a>
+                        {% else %}
+                        <a class="page-link" href="/blog/page{{ page }}">{{ page }}</a>
+                        {% endif %}
+                    </li>
+                    {% endfor %}
+                    
+                    {% if paginator.next_page %}
+                    <li class="page-item">
+                        <a class="page-link" href="{{ paginator.next_page_path | prepend: site.baseurl }}">Next &raquo;</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+<style>
+/* Blog styles */
+.card {
+    border: none;
+    transition: transform 0.2s ease;
+    background: var(--card-bg);
+    box-shadow: var(--card-shadow);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+    border-top-left-radius: calc(0.25rem - 1px);
+    border-top-right-radius: calc(0.25rem - 1px);
+}
+
+.card-title a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.card-title a:hover {
+    color: var(--link-color);
+}
+
+.category-badge {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    margin: 0.25rem;
+    background-color: var(--link-color);
+    color: white;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.category-badge:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--card-shadow);
+    color: white;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background-color: var(--link-color);
+    border-color: var(--link-color);
+}
+
+.pagination .page-link {
+    color: var(--link-color);
+    background-color: var(--card-bg);
+    border-color: var(--border-color);
+}
+
+.pagination .page-item.active .page-link {
+    background-color: var(--link-color);
+    border-color: var(--link-color);
+    color: white;
+}
+
+[data-theme="dark"] {
+    .card {
+        background: var(--card-bg);
+    }
+    
+    .pagination .page-link {
+        background-color: var(--card-bg);
+        border-color: var(--border-color);
+        color: var(--link-color);
+    }
+}
+</style>
+
+<!-- MathJax -->
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    processEscapes: true,
+    processEnvironments: true
+  },
+  options: {
+    skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+  }
+};
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<!-- Theme-aware Mermaid -->
+<script>
+const updateMermaidTheme = () => {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    mermaid.initialize({
+        theme: isDark ? 'dark' : 'default',
+        themeVariables: {
+            darkMode: isDark
+        }
+    });
+};
+
+// Update theme when the page loads
+document.addEventListener('DOMContentLoaded', updateMermaidTheme);
+
+// Update theme when it changes
+const themeObserver = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+        if (mutation.attributeName === 'data-theme') {
+            updateMermaidTheme();
+        }
+    });
+});
+
+themeObserver.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ['data-theme']
+});
+</script>

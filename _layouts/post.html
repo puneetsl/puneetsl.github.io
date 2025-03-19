@@ -5,6 +5,13 @@ archive: false
 post_class: post-template
 ---
 
+<!-- KaTeX -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+
+<!-- Mermaid -->
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+
 <!-- Begin Article
 ================================================== -->
 <div class="container">
@@ -50,27 +57,39 @@ post_class: post-template
 			</div>
 
             <!-- Post Date -->
-            <p>
-            <small>
-                <span class="post-date"><time class="post-date" datetime="{{ page.date | date:"%Y-%m-%d" }}">{{ page.date | date_to_string }}</time></span>           
-                {% if page.last_modified_at %}
-                (Updated: <time datetime="{{ page.last_modified_at | date_to_xmlschema }}" itemprop="dateModified">{{ page.last_modified_at | date: "%b %-d, %Y" }}</time>)
-                {% endif %}
+            <div class="d-flex align-items-center mt-4">
+                <small class="ml-3">
+                    <span class="post-date"><time class="post-date" datetime="{{ page.date | date:"%Y-%m-%d" }}">{{ page.date | date_to_string }}</time></span>
+                    {% if page.last_modified_at %}
+                    (Updated: <time datetime="{{ page.last_modified_at | date_to_xmlschema }}" itemprop="dateModified">{{ page.last_modified_at | date: "%b %-d, %Y" }}</time>)
+                    {% endif %}
                 </small>
-            </p>
+            </div>
             
 			<!-- Post Categories -->
-			<div class="after-post-tags">
-				<ul class="tags">
+			<div class="after-post-cats">
+				<ul class="tags mb-4">
                     {% assign sortedCategories = page.categories | sort %}
                     {% for category in sortedCategories %}
                     <li>
-                     <a href="{{ site.baseurl }}/category/{{ category | slugify }}/">{{ category }}</a>
+                     <a href="category/{{ category | slugify }}/">{{ category }}</a>
                     </li>
                     {% endfor %}
 				</ul>
 			</div>
 			<!-- End Categories -->
+            
+            <!-- Post Tags -->
+            <div class="after-post-tags">
+                <ul class="tags">
+                    {% assign sortedTags = page.tags | sort %}
+                    {% for tag in sortedTags %}
+                    <li>
+                        <a href="/tag/{{ tag | slugify }}/">#{{ tag }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
             
             <!-- Prev/Next -->
             <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
@@ -107,3 +126,151 @@ post_class: post-template
 {% endif %}
 <!--End Comments
 ================================================== -->
+
+<!-- Post Styles -->
+<style>
+.article-post {
+    font-family: var(--font-family-sans-serif);
+    font-size: 1.1rem;
+    line-height: 1.84;
+    color: var(--text-color);
+}
+
+.article-post p {
+    margin-bottom: 1.5rem;
+}
+
+.article-post .featured-image {
+    margin-bottom: 2rem;
+    border-radius: 10px;
+    box-shadow: var(--card-shadow);
+}
+
+.article-post h1, .article-post h2, .article-post h3, .article-post h4, .article-post h5, .article-post h6 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+/* Code blocks */
+.article-post pre {
+    background: var(--card-bg);
+    border-radius: 5px;
+    padding: 1rem;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+}
+
+.article-post code {
+    color: var(--text-color);
+    background: var(--card-bg);
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+}
+
+/* Math blocks */
+.katex-display {
+    margin: 1.5rem 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+/* Mermaid diagrams */
+.mermaid {
+    background: var(--card-bg);
+    padding: 1rem;
+    margin: 1.5rem 0;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.mermaid svg {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Tags */
+.tags {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tags li a {
+    display: inline-block;
+    background: var(--card-bg);
+    color: var(--text-color);
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.tags li a:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--card-shadow);
+}
+
+/* Author box */
+.author-thumb {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+
+.author-description {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    display: block;
+    margin-top: 0.5rem;
+}
+
+[data-theme="dark"] {
+    .article-post pre {
+        background: #2d2d2d;
+    }
+    
+    .article-post code {
+        color: #e6e6e6;
+        background: #2d2d2d;
+    }
+}
+
+[data-theme="dark"] .mermaid {
+    background: var(--card-bg);
+}
+</style>
+
+<!-- Theme-aware Mermaid -->
+<script>
+const updateMermaidTheme = () => {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    mermaid.initialize({
+        theme: isDark ? 'dark' : 'default',
+        themeVariables: {
+            darkMode: isDark
+        }
+    });
+};
+
+// Update theme when the page loads
+document.addEventListener('DOMContentLoaded', updateMermaidTheme);
+
+// Update theme when it changes
+const themeObserver = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+        if (mutation.attributeName === 'data-theme') {
+            updateMermaidTheme();
+        }
+    });
+});
+
+themeObserver.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ['data-theme']
+});
+</script>

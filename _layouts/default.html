@@ -15,7 +15,7 @@
 </script>
 {% endif %}
 
-<link rel="icon" href="{{ site.baseurl }}/assets/images/logo.png">
+<link rel="icon" href="/assets/images/logo.png">
 
 <title>{{ page.title }} | {{site.name}}</title>
 
@@ -28,10 +28,136 @@
 
 <link href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" rel="stylesheet">
 
-<link href="{{ site.baseurl }}/assets/css/screen.css" rel="stylesheet">
+<link href="/assets/css/screen.css" rel="stylesheet">
 
-<link href="{{ site.baseurl }}/assets/css/main.css" rel="stylesheet">
+<link href="/assets/css/main.scss" rel="stylesheet">
 
+<!-- MathJax -->
+<script>
+MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    processEscapes: true,
+    processEnvironments: true
+  },
+  options: {
+    skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+  }
+};
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+{% if page.layout == "post" %}
+<!-- KaTeX -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+
+<!-- Mermaid -->
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+{% endif %}
+
+<style>
+:root {
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --card-bg: #ffffff;
+    --card-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    --navbar-bg: #ffffff;
+    --navbar-text: #333333;
+    --link-color: #007bff;
+    --border-color: #dee2e6;
+    --chart-bg: #ffffff;
+    --chart-text: #333333;
+    --chart-grid: rgba(0,0,0,0.1);
+    --section-bg: #ffffff;
+}
+
+[data-theme="dark"] {
+    --bg-color: #1a1a1a;
+    --text-color: #ffffff;
+    --card-bg: #2d2d2d;
+    --card-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    --navbar-bg: #2d2d2d;
+    --navbar-text: #ffffff;
+    --link-color: #66b0ff;
+    --border-color: #404040;
+    --chart-bg: #2d2d2d;
+    --chart-text: #ffffff;
+    --chart-grid: rgba(255,255,255,0.1);
+    --section-bg: #2d2d2d;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar {
+    background-color: var(--navbar-bg) !important;
+    transition: background-color 0.3s ease;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: var(--navbar-text) !important;
+}
+
+.card, .story-section, .charts-section, .chart-wrapper {
+    background-color: var(--card-bg) !important;
+    box-shadow: var(--card-shadow);
+    border-color: var(--border-color);
+    color: var(--text-color);
+}
+
+.mainheading {
+    color: var(--text-color);
+}
+
+.footer {
+    background-color: var(--navbar-bg);
+    color: var(--text-color);
+    border-top: 1px solid var(--border-color);
+}
+
+.footer a {
+    color: var(--link-color);
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    color: var(--navbar-text);
+    cursor: pointer;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.theme-toggle:hover {
+    color: var(--link-color);
+}
+
+.profile-card {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+}
+
+.profile-card .tagline {
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+.story-section h2, .story-section h3 {
+    color: var(--text-color);
+}
+
+.impact-card, .research-card, .education-card {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+}
+</style>
 </head>
 
 {% if jekyll.environment == 'production' %}
@@ -49,8 +175,8 @@
     <div class="container pr-0">
 
     <!-- Begin Logo -->
-    <a class="navbar-brand" href="{{ site.baseurl }}/">
-    <img src="{{ site.baseurl }}/{{ site.logo }}" alt="{{ site.name }}">
+    <a class="navbar-brand" href="/">
+    <img src="/{{ site.logo }}" alt="{{ site.name }}">
     </a>
     <!-- End Logo -->
 
@@ -81,16 +207,9 @@
                 {% else %}
                 <li class="nav-item">
                 {% endif %}
-                <a class="nav-link" href="{{ site.baseurl }}/about"><i class="far fa-smile"></i> About</a>
+                <a class="nav-link" href="/about"><i class="fas fa-user"></i> About</a>
                 </li>
 
-                {% if page.url == "/resume.html" %}
-                <li class="nav-item active">
-                {% else %}
-                <li class="nav-item">
-                {% endif %}
-                <a class="nav-link" href="{{ site.baseurl }}/resume"><i class="far fa-id-card"></i> Resume</a>
-                </li>
                 <li class="nav-item">
                     <a target="_blank" class="nav-link" href="https://github.com/puneetsl/"><i class="fab fa-github"></i></a>
                 </li>
@@ -108,6 +227,11 @@
                 
                 <li class="nav-item">
                 <a target="_blank"  class="nav-link" href="https://scholar.google.co.in/citations?user=NrYKcaMAAAAJ&hl=en&authuser=1"><i class="fas fa-user-graduate"></i></a>
+                </li>
+                <li class="nav-item">
+                    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                        <i class="fas fa-moon"></i>
+                    </button>
                 </li>
             </ul>
 
@@ -144,7 +268,7 @@
 ================================================== -->
 <div class="alertbar">
 	<div class="container text-center">
-		<span><img src="{{ site.baseurl }}/{{ site.logo }}" alt="{{site.title}}"> &nbsp; Never miss a <b>story</b> from us, subscribe to our newsletter</span>
+		<span><img src="/{{ site.logo }}" alt="{{site.title}}"> &nbsp; Never miss a <b>story</b> from us, subscribe to our newsletter</span>
         <form action="{{site.mailchimp-list}}" method="post" name="mc-embedded-subscribe-form" class="wj-contact-form validate" target="_blank" novalidate>
             <div class="mc-field-group">
             <input type="email" placeholder="Email" name="EMAIL" class="required email" id="mce-EMAIL" autocomplete="on" required>
@@ -169,11 +293,11 @@
           {% assign tags_list = site.categories %}
           {% if tags_list.first[0] == null %}
             {% for tag in tags_list %}
-              <a href="{{ site.baseurl }}/category/{{ tag }}">{{ tag | capitalize }} {{ site.tags[tag].size }}</a>
+              <a href="category/{{ tag }}">{{ tag | capitalize }} {{ site.tags[tag].size }}</a>
             {% endfor %}
           {% else %}
             {% for tag in tags_list %}
-              <a href="{{ site.baseurl }}/category/{{ tag[0] }}">{{ tag[0] | capitalize }} ({{ tag[1].size }})</a>
+              <a href="category/{{ tag[0] }}">{{ tag[0] | capitalize }} ({{ tag[1].size }})</a>
             {% endfor %}
           {% endif %}
         {% assign tags_list = nil %}
@@ -208,16 +332,56 @@
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
 
-<script src="{{ site.baseurl }}/assets/js/jquery.min.js"></script>
+<script src="/assets/js/jquery.min.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
-<script src="{{ site.baseurl }}/assets/js/ie10-viewport-bug-workaround.js"></script>
+<script src="/assets/js/ie10-viewport-bug-workaround.js"></script>
 
-<script src="{{ site.baseurl }}/assets/js/mediumish.js"></script>
+<script src="/assets/js/mediumish.js"></script>
 
 <script id="dsq-count-scr" src="//{{site.disqus}}.disqus.com/count.js"></script>
+
+<script>
+// Theme switching functionality
+const themeToggle = document.getElementById('theme-toggle');
+const icon = themeToggle.querySelector('i');
+
+// Check for saved theme preference or system preference
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme) {
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    updateIcon(savedTheme);
+} else {
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const theme = prefersDark ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', theme);
+    updateIcon(theme);
+}
+
+// Listen for system theme changes
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+    if (!localStorage.getItem('theme')) {
+        const theme = e.matches ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', theme);
+        updateIcon(theme);
+    }
+});
+
+themeToggle.addEventListener('click', () => {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    updateIcon(newTheme);
+});
+
+function updateIcon(theme) {
+    icon.className = theme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
+}
+</script>
 </body>
 </html>

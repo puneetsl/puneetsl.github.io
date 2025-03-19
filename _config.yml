@@ -1,27 +1,37 @@
 # Site
 name: "Puneet Singh Ludu"
-description: "ML Systems Architect | FinTech • PropTech (Zestimate) • AI Infrastructure"
+title: "Puneet Singh Ludu"
+description: "Machine Learning Architecture & Innovation"
 meta_description: "My Website"
 logo: 'assets/images/logo.png'
 favicon: 'assets/images/logo.png'
-baseurl: /
+baseurl: ''
 google_analytics: 'G-NQW8G553M1'
 disqus: 'puneetsl'
+mailchimp-list: ''
+include: ["_pages"]
+permalink: /:title/
 
 # Authors
 authors:
-  Puneet:
-    name: Puneet
+  puneet:
+    name: Puneet Singh Ludu
     display_name: Puneet
+    gravatar: e56154546cf4be74e393c62d1ae9f9d4
     email: puneet.ludu@gmail.com
-    web: http://www.puneetsingh.me
+    web: https://www.puneet.io
     twitter: https://twitter.com/puneetsl
-    description: ""
+    description: "Machine Learning Engineer at Zillow. Focused on ML Architecture & Innovation."
 
 # Plugins
 plugins:
   - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-seo-tag
   - jekyll-archives
+  - jekyll-katex
+  - jekyll-mermaid
 
 # Archives
 jekyll-archives:
@@ -33,8 +43,43 @@ jekyll-archives:
 
 # Pagination
 paginate: 6
-paginate_path: /page:num/
+paginate_path: /blog/page:num/
 
 # Other
 markdown: kramdown
-highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    block:
+      line_numbers: true
+
+# Lazy Images
+lazyimages: "enabled"
+
+# Sass
+sass:
+  style: compressed
+  quiet_deps: true  # Suppress deprecation warnings from dependencies
+
+# Mermaid
+mermaid:
+  src: 'https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js'
+  initialize: >
+    {
+      "theme": "default",
+      "themeVariables": {
+        "darkMode": false
+      },
+      "securityLevel": "loose",
+      "startOnLoad": true
+    }
+
+# Math rendering (KaTeX)
+katex:
+  rendering_options:
+    throw_error: true
+    output: mathml
+
+# Exclude metadata and development time dependencies (like Grunt plugins)
+exclude: [README.markdown, package.json, grunt.js, Gruntfile.js, Gruntfile.coffee, node_modules]
