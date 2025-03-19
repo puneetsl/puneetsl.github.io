@@ -475,3 +475,121 @@ code {
     padding: 0.2rem 0.5rem;
     border-radius: 4px;
 }
+
+/* Horizontal Scrolling Sections */
+.scroll-section {
+    position: relative;
+    padding: 20px 0;
+    margin: 20px 0;
+}
+
+.scroll-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 20px 4%;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    /* Firefox */
+    gap: 20px;
+}
+
+.scroll-container::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari, Opera */
+}
+
+/* Skills Cards in Horizontal Layout */
+.skills-scroll .card {
+    flex: 0 0 300px;
+    margin-right: 0;
+    transition: transform 0.3s ease;
+}
+
+.skills-scroll .card:hover {
+    transform: scale(1.05);
+}
+
+/* Timeline in Horizontal Layout */
+.timeline-scroll {
+    display: flex;
+    gap: 30px;
+    position: relative;
+    padding: 20px 0;
+}
+
+.timeline-scroll .timeline-item {
+    flex: 0 0 400px;
+    position: relative;
+    padding: 20px;
+    background: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-scroll .timeline-badge {
+    position: absolute;
+    top: -15px;
+    left: 20px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+/* Projects in Horizontal Layout */
+.projects-scroll .project-card {
+    flex: 0 0 400px;
+    transition: transform 0.3s ease;
+}
+
+.projects-scroll .project-card:hover {
+    transform: scale(1.02);
+}
+
+/* Navigation Arrows */
+.scroll-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    cursor: pointer;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.scroll-section:hover .scroll-nav {
+    opacity: 1;
+}
+
+.scroll-nav.prev {
+    left: 10px;
+}
+
+.scroll-nav.next {
+    right: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .scroll-container {
+        padding: 20px 20px;
+    }
+
+    .skills-scroll .card,
+    .timeline-scroll .timeline-item,
+    .projects-scroll .project-card {
+        flex: 0 0 280px;
+    }
+}

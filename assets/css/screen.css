@@ -965,3 +965,114 @@ iframe {
 .card:hover {
     transform: translateY(-5px);
 }
+
+/* Netflix-inspired Horizontal Layout */
+.netflix-container {
+    width: 100%;
+    padding: 20px 0;
+    background-color: var(--bg-color);
+}
+
+.netflix-row {
+    position: relative;
+    width: 100%;
+    margin: 20px 0;
+}
+
+.netflix-row-header {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 10px;
+    padding-left: 4%;
+}
+
+.netflix-slider {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 0 4%;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.netflix-slider::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari, Opera */
+}
+
+.netflix-item {
+    flex: 0 0 auto;
+    width: 300px;
+    margin-right: 20px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.netflix-item:hover {
+    transform: scale(1.05);
+}
+
+.netflix-item .card {
+    border: none;
+    background-color: var(--card-bg);
+    height: 100%;
+}
+
+.netflix-item .card-img-top {
+    height: 169px;
+    /* 16:9 aspect ratio */
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.netflix-item .card-body {
+    padding: 10px 0;
+}
+
+.netflix-item .card-title {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    color: var(--text-color);
+}
+
+.netflix-item .card-text {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* Navigation arrows */
+.netflix-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.netflix-row:hover .netflix-nav {
+    opacity: 1;
+}
+
+.netflix-nav.prev {
+    left: 0;
+}
+
+.netflix-nav.next {
+    right: 0;
+}
+
+.netflix-nav i {
+    color: white;
+    font-size: 20px;
+}

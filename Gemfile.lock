@@ -163,7 +163,6 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
-  jekyll
   jekyll-archives
   jekyll-feed
   jekyll-katex
@@ -171,10 +170,6 @@ DEPENDENCIES
   jekyll-paginate
   jekyll-seo-tag
   jekyll-sitemap
-  kramdown
-  rouge
-  tzinfo-data
-  webrick
 
 RUBY VERSION
    ruby 3.4.2p28

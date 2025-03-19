@@ -4,6 +4,7 @@ title: Home
 ---
 
 <link href="/assets/css/custom.css" rel="stylesheet">
+<script src="/assets/js/horizontal-scroll.js"></script>
 
 <!-- Hero Section -->
 <div class="container-fluid py-5 bg-gradient-primary">
@@ -33,14 +34,14 @@ title: Home
 </div>
 
 <!-- Skills Section -->
-<div class="container py-5 skills-section">
-    <div class="text-center mb-5">
+<div class="container py-5">
+    <div class="text-center mb-4">
         <h2 class="display-5">Technical Expertise</h2>
         <p class="lead">Technologies I work with</p>
     </div>
     
-    <div class="row g-4">
-        <div class="col-md-4">
+    <div class="scroll-section">
+        <div class="scroll-container skills-scroll">
             <div class="card h-100 border-0 shadow-sm">
                 <div class="card-body">
                     <div class="icon-title">
@@ -57,9 +58,7 @@ title: Home
                     </div>
                 </div>
             </div>
-        </div>
-        
-        <div class="col-md-4">
+            
             <div class="card h-100 border-0 shadow-sm">
                 <div class="card-body">
                     <div class="icon-title">
@@ -76,9 +75,7 @@ title: Home
                     </div>
                 </div>
             </div>
-        </div>
-        
-        <div class="col-md-4">
+            
             <div class="card h-100 border-0 shadow-sm">
                 <div class="card-body">
                     <div class="icon-title">
@@ -96,231 +93,275 @@ title: Home
                 </div>
             </div>
         </div>
+        <div class="scroll-nav prev">
+            <i class="fas fa-chevron-left"></i>
+        </div>
+        <div class="scroll-nav next">
+            <i class="fas fa-chevron-right"></i>
+        </div>
     </div>
 </div>
 
 <!-- Experience Timeline -->
 <div class="container py-5">
-    <div class="text-center mb-5">
+    <div class="text-center mb-4">
         <h2 class="display-5">Career Journey</h2>
         <p class="lead">My professional experience and education</p>
     </div>
     
-    <div class="timeline">
-        <div class="timeline-item">
-            <div class="timeline-badge bg-primary">
-                <i class="fas fa-briefcase"></i>
+    <div class="scroll-section">
+        <div class="scroll-container timeline-scroll">
+            <div class="timeline-item">
+                <div class="timeline-badge bg-primary">
+                    <i class="fas fa-briefcase"></i>
+                </div>
+                <div class="timeline-content">
+                    <h4>Machine Learning Engineer</h4>
+                    <h5>Zillow (Zestimate) | 2021 - Present</h5>
+                    <p>Leading the architecture and development of Zillow's next-gen valuation systems. Spearheaded the interactive CMA platform development and infrastructure modernization.</p>
+                </div>
             </div>
-            <div class="timeline-content">
-                <h4>Machine Learning Engineer</h4>
-                <h5>Zillow (Zestimate) | 2021 - Present</h5>
-                <p>Leading the architecture and development of Zillow's next-gen valuation systems. Spearheaded the interactive CMA platform development and infrastructure modernization, achieving $500k annual cost savings. Mentoring team members and driving technical innovation across the organization.</p>
+            
+            <div class="timeline-item">
+                <div class="timeline-badge bg-primary">
+                    <i class="fas fa-briefcase"></i>
+                </div>
+                <div class="timeline-content">
+                    <h4>Machine Learning Engineer</h4>
+                    <h5>OkCupid (Match.com) | 2020 - 2021</h5>
+                    <p>Led end-to-end development of ML pricing optimization system, implementing sophisticated pricing models that drove 6% revenue increase.</p>
+                </div>
             </div>
-        </div>
-        
-        <div class="timeline-item">
-            <div class="timeline-badge bg-primary">
-                <i class="fas fa-briefcase"></i>
+            
+            <div class="timeline-item">
+                <div class="timeline-badge bg-primary">
+                    <i class="fas fa-briefcase"></i>
+                </div>
+                <div class="timeline-content">
+                    <h4>Machine Learning Engineer</h4>
+                    <h5>FactSet | 2015 - 2020</h5>
+                    <p>Architected multiple ML systems including real-time speaker identification for earnings calls and automated information extraction.</p>
+                </div>
             </div>
-            <div class="timeline-content">
-                <h4>Machine Learning Engineer</h4>
-                <h5>OkCupid (Match.com) | 2020 - 2021</h5>
-                <p>Led end-to-end development of ML pricing optimization system, implementing sophisticated pricing models that drove 6% revenue increase through A/B testing. Owned the complete ML pipeline from feature engineering to production deployment.</p>
-            </div>
-        </div>
-        
-        <div class="timeline-item">
-            <div class="timeline-badge bg-primary">
-                <i class="fas fa-briefcase"></i>
-            </div>
-            <div class="timeline-content">
-                <h4>Machine Learning Engineer</h4>
-                <h5>FactSet | 2015 - 2020</h5>
-                <p>Architected multiple ML systems including real-time speaker identification for earnings calls, automated company information extraction from 1.6M websites, and near-duplicate document detection service. Reduced compute time by 66% and pioneered new search ranking algorithms.</p>
-            </div>
-        </div>
-        <div class="timeline-item">
-            <div class="timeline-badge bg-primary">
-                <i class="fas fa-graduation-cap"></i>
-            </div>
-            <div class="timeline-content">
-                <h4>Master of Science in Computer Science</h4>
-                <h5>State University of New York, Buffalo | 2014</h5>
-                <p>Focused on Machine Learning and Natural Language Processing. Published research on user attribute inference and social network analysis.</p>
-            </div>
-        </div>
 
-        <div class="timeline-item">
-            <div class="timeline-badge bg-primary">
-                <i class="fas fa-briefcase"></i>
+            <div class="timeline-item">
+                <div class="timeline-badge bg-primary">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="timeline-content">
+                    <h4>Master of Science in Computer Science</h4>
+                    <h5>SUNY Buffalo | 2014</h5>
+                    <p>Focused on Machine Learning and Natural Language Processing. Published research on user attribute inference.</p>
+                </div>
             </div>
-            <div class="timeline-content">
-                <h4>ML Research Engineer</h4>
-                <h5>Tata Research Development and Design Centre | 2011 - 2013</h5>
-                <p>Developed novel algorithms for time series pattern detection achieving 7% accuracy improvement over existing methods. Built an ETL framework for real-time enterprise data harmonization using MapReduce paradigm.</p>
+
+            <div class="timeline-item">
+                <div class="timeline-badge bg-primary">
+                    <i class="fas fa-briefcase"></i>
+                </div>
+                <div class="timeline-content">
+                    <h4>ML Research Engineer</h4>
+                    <h5>TRDDC | 2011 - 2013</h5>
+                    <p>Developed novel algorithms for time series pattern detection and built real-time enterprise data harmonization framework.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-badge bg-primary">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="timeline-content">
+                    <h4>B.Tech in Computer Science</h4>
+                    <h5>JIIT, India | 2010</h5>
+                    <p>Foundation in Computer Science. Published research on automated music mood classification.</p>
+                </div>
             </div>
         </div>
-
-
-
-        <div class="timeline-item">
-            <div class="timeline-badge bg-primary">
-                <i class="fas fa-graduation-cap"></i>
-            </div>
-            <div class="timeline-content">
-                <h4>B.Tech in Computer Science and Engineering</h4>
-                <h5>JIIT, India | 2010</h5>
-                <p>Foundation in Computer Science and Software Engineering. Published research on automated music mood classification.</p>
-            </div>
+        <div class="scroll-nav prev">
+            <i class="fas fa-chevron-left"></i>
+        </div>
+        <div class="scroll-nav next">
+            <i class="fas fa-chevron-right"></i>
         </div>
     </div>
 </div>
 
 <!-- Projects Section -->
 <div class="container py-5">
-    <div class="text-center mb-5">
+    <div class="text-center mb-4">
         <h2 class="display-5">Notable Projects</h2>
         <p class="lead">Key projects across professional, academic, and open-source domains</p>
     </div>
     
-    <div class="row g-4">
-        <!-- Professional Projects -->
-        <div class="col-md-6 mb-4">
-            <div class="card h-100 border-0 shadow-sm">
+    <!-- Professional Projects -->
+    <div class="scroll-section mb-5">
+        <h3 class="mb-3"><i class="fa-solid fa-briefcase"></i> Professional</h3>
+        <div class="scroll-container projects-scroll">
+            <div class="project-card card border-0 shadow-sm">
                 <div class="card-body">
-                    <h4 class="text-primary"><i class="fa-solid fa-briefcase"></i> Professional</h4>
-                    <div class="project-item mb-4">
-                        <h5>Interactive CMA Platform</h5>
-                        <p class="text-muted">Zillow • 2023</p>
-                        <p>Led development of an ML-powered Comparative Market Analysis platform using Siamese Neural Networks, enabling real-time property valuations and automated comps selection.</p>
-                        <div class="mt-2">
-                            <span class="badge bg-secondary">Python</span>
-                            <span class="badge bg-secondary">PyTorch</span>
-                            <span class="badge bg-secondary">AWS</span>
-                        </div>
+                    <h5>Interactive CMA Platform</h5>
+                    <p class="text-muted">Zillow • 2023</p>
+                    <p>Led development of an ML-powered Comparative Market Analysis platform using Siamese Neural Networks.</p>
+                    <div class="mt-2">
+                        <span class="badge bg-secondary">Python</span>
+                        <span class="badge bg-secondary">PyTorch</span>
+                        <span class="badge bg-secondary">AWS</span>
                     </div>
-                    <div class="project-item mb-4">
-                        <h5>Dynamic Pricing Engine</h5>
-                        <p class="text-muted">OkCupid • 2021</p>
-                        <p>Architected an ML system for subscription pricing optimization using Wide & Deep learning, achieving 6% revenue growth through personalized pricing.</p>
-                        <div class="mt-2">
-                            <span class="badge bg-secondary">TensorFlow</span>
-                            <span class="badge bg-secondary">MLOps</span>
-                            <span class="badge bg-secondary">A/B Testing</span>
-                        </div>
+                </div>
+            </div>
+            
+            <div class="project-card card border-0 shadow-sm">
+                <div class="card-body">
+                    <h5>Dynamic Pricing Engine</h5>
+                    <p class="text-muted">OkCupid • 2021</p>
+                    <p>Architected an ML system for subscription pricing optimization using Wide & Deep learning.</p>
+                    <div class="mt-2">
+                        <span class="badge bg-secondary">TensorFlow</span>
+                        <span class="badge bg-secondary">MLOps</span>
+                        <span class="badge bg-secondary">A/B Testing</span>
                     </div>
-                    <div class="project-item">
-                        <h5>Speaker Identification System</h5>
-                        <p class="text-muted">FactSet • 2019</p>
-                        <p>Built a real-time speaker identification system for earnings calls using CNNs, processing 100K+ hours of audio with 95% accuracy.</p>
-                        <div class="mt-2">
-                            <span class="badge bg-secondary">Deep Learning</span>
-                            <span class="badge bg-secondary">Audio Processing</span>
-                            <span class="badge bg-secondary">Real-time</span>
-                        </div>
+                </div>
+            </div>
+            
+            <div class="project-card card border-0 shadow-sm">
+                <div class="card-body">
+                    <h5>Speaker Identification System</h5>
+                    <p class="text-muted">FactSet • 2019</p>
+                    <p>Built a real-time speaker identification system for earnings calls using CNNs.</p>
+                    <div class="mt-2">
+                        <span class="badge bg-secondary">Deep Learning</span>
+                        <span class="badge bg-secondary">Audio Processing</span>
+                        <span class="badge bg-secondary">Real-time</span>
                     </div>
                 </div>
             </div>
         </div>
-        
-        <!-- Academic & Research -->
-        <div class="col-md-6 mb-4">
-            <div class="card h-100 border-0 shadow-sm">
+        <div class="scroll-nav prev">
+            <i class="fas fa-chevron-left"></i>
+        </div>
+        <div class="scroll-nav next">
+            <i class="fas fa-chevron-right"></i>
+        </div>
+    </div>
+    
+    <!-- Academic Projects -->
+    <div class="scroll-section mb-5">
+        <h3 class="mb-3"><i class="fa-solid fa-graduation-cap"></i> Research & Academic</h3>
+        <div class="scroll-container projects-scroll">
+            <div class="project-card card border-0 shadow-sm">
                 <div class="card-body">
-                    <h4 class="text-primary"><i class="fa-solid fa-graduation-cap"></i> Research & Academic</h4>
-                    <div class="project-item mb-4">
-                        <h5>Quena - Question Answering System</h5>
-                        <p class="text-muted">SUNY Buffalo • 2014</p>
-                        <p>Developed a large-scale QA system indexing 1.6M documents, using advanced NLP techniques for semantic search and answer extraction.</p>
-                        <div class="mt-2">
-                            <span class="badge bg-secondary">NLP</span>
-                            <span class="badge bg-secondary">Information Retrieval</span>
-                            <span class="badge bg-secondary">Java</span>
-                        </div>
+                    <h5>Quena - Question Answering System</h5>
+                    <p class="text-muted">SUNY Buffalo • 2014</p>
+                    <p>Developed a large-scale QA system indexing 1.6M documents.</p>
+                    <div class="mt-2">
+                        <span class="badge bg-secondary">NLP</span>
+                        <span class="badge bg-secondary">Information Retrieval</span>
+                        <span class="badge bg-secondary">Java</span>
                     </div>
-                    <div class="project-item mb-4">
-                        <h5>Social Network Analysis Framework</h5>
-                        <p class="text-muted">ACM Hypertext • 2015</p>
-                        <p>Created a framework for inferring user attributes through celebrity network analysis, published at ACM Hypertext 2015.</p>
-                        <div class="mt-2">
-                            <span class="badge bg-secondary">Graph Analysis</span>
-                            <span class="badge bg-secondary">Machine Learning</span>
-                            <span class="badge bg-secondary">Python</span>
-                        </div>
+                </div>
+            </div>
+            
+            <div class="project-card card border-0 shadow-sm">
+                <div class="card-body">
+                    <h5>Social Network Analysis Framework</h5>
+                    <p class="text-muted">ACM Hypertext • 2015</p>
+                    <p>Created a framework for inferring user attributes through celebrity network analysis.</p>
+                    <div class="mt-2">
+                        <span class="badge bg-secondary">Graph Analysis</span>
+                        <span class="badge bg-secondary">Machine Learning</span>
+                        <span class="badge bg-secondary">Python</span>
                     </div>
-                    <div class="project-item">
-                        <h5>Music Mood Classification</h5>
-                        <p class="text-muted">IJCSI • 2010</p>
-                        <p>Pioneered an automated system for music mood classification using audio feature extraction and ML, published in IJCSI.</p>
-                        <div class="mt-2">
-                            <span class="badge bg-secondary">Signal Processing</span>
-                            <span class="badge bg-secondary">Classification</span>
-                            <span class="badge bg-secondary">MATLAB</span>
-                        </div>
+                </div>
+            </div>
+            
+            <div class="project-card card border-0 shadow-sm">
+                <div class="card-body">
+                    <h5>Music Mood Classification</h5>
+                    <p class="text-muted">IJCSI • 2010</p>
+                    <p>Pioneered an automated system for music mood classification.</p>
+                    <div class="mt-2">
+                        <span class="badge bg-secondary">Signal Processing</span>
+                        <span class="badge bg-secondary">Classification</span>
+                        <span class="badge bg-secondary">MATLAB</span>
                     </div>
                 </div>
             </div>
         </div>
-
-        <!-- Open Source -->
-        <div class="col-12">
-            <div class="card border-0 shadow-sm">
+        <div class="scroll-nav prev">
+            <i class="fas fa-chevron-left"></i>
+        </div>
+        <div class="scroll-nav next">
+            <i class="fas fa-chevron-right"></i>
+        </div>
+    </div>
+    
+    <!-- Open Source Projects -->
+    <div class="scroll-section">
+        <h3 class="mb-3"><i class="fa-solid fa-code-branch"></i> Open Source</h3>
+        <div class="scroll-container projects-scroll">
+            <div class="project-card card border-0 shadow-sm">
                 <div class="card-body">
-                    <h4 class="text-primary"><i class="fa-solid fa-code-branch"></i> Open Source</h4>
-                    <div class="row">
-                        <div class="col-md-6 mb-4 mb-md-0">
-                            <div class="project-item">
-                                <h5>Lotion</h5>
-                                <p class="text-muted">2K+ GitHub Stars • 60K+ Downloads</p>
-                                <p>Unofficial Notion.so Desktop app for Linux, bringing the full Notion experience to Linux users with native integration.</p>
-                                <div class="mt-2">
-                                    <span class="badge bg-secondary">Electron</span>
-                                    <span class="badge bg-secondary">JavaScript</span>
-                                    <span class="badge bg-secondary">Linux</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="project-item">
-                                <h5>Romadeva</h5>
-                                <p class="text-muted">Used by Translators Without Borders</p>
-                                <p>Advanced Roman to Devanagari script converter with contextual awareness and linguistic rule processing.</p>
-                                <div class="mt-2">
-                                    <span class="badge bg-secondary">NLP</span>
-                                    <span class="badge bg-secondary">Python</span>
-                                    <span class="badge bg-secondary">Linguistics</span>
-                                </div>
-                            </div>
-                        </div>
+                    <h5>Lotion</h5>
+                    <p class="text-muted">2K+ GitHub Stars • 60K+ Downloads</p>
+                    <p>Unofficial Notion.so Desktop app for Linux with native integration.</p>
+                    <div class="mt-2">
+                        <span class="badge bg-secondary">Electron</span>
+                        <span class="badge bg-secondary">JavaScript</span>
+                        <span class="badge bg-secondary">Linux</span>
                     </div>
                 </div>
             </div>
+            
+            <div class="project-card card border-0 shadow-sm">
+                <div class="card-body">
+                    <h5>Romadeva</h5>
+                    <p class="text-muted">Used by Translators Without Borders</p>
+                    <p>Advanced Roman to Devanagari script converter with contextual awareness.</p>
+                    <div class="mt-2">
+                        <span class="badge bg-secondary">NLP</span>
+                        <span class="badge bg-secondary">Python</span>
+                        <span class="badge bg-secondary">Linguistics</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-nav prev">
+            <i class="fas fa-chevron-left"></i>
+        </div>
+        <div class="scroll-nav next">
+            <i class="fas fa-chevron-right"></i>
         </div>
     </div>
 </div>
 
 <!-- Publications Section -->
 <div class="container py-5">
-    <div class="text-center mb-5">
+    <div class="text-center mb-4">
         <h2 class="display-5">Research Publications</h2>
         <p class="lead">My contributions to academic research</p>
     </div>
     
-    <div class="row">
-        <div class="col-12">
-            <div class="card mb-4 border-0 shadow-sm">
+    <div class="scroll-section">
+        <div class="scroll-container projects-scroll">
+            <div class="project-card card border-0 shadow-sm">
                 <div class="card-body">
                     <h5>Inferring Latent Attributes of an Indian Twitter user using Celebrities and Class Influencers</h5>
                     <p class="text-muted">ACM Hypertext 2015</p>
                 </div>
             </div>
             
-            <div class="card mb-4 border-0 shadow-sm">
+            <div class="project-card card border-0 shadow-sm">
                 <div class="card-body">
                     <h5>Architecture for Automated Tagging and Clustering of Song Files According to Mood</h5>
                     <p class="text-muted">IJCSI, 2010</p>
                 </div>
             </div>
+        </div>
+        <div class="scroll-nav prev">
+            <i class="fas fa-chevron-left"></i>
+        </div>
+        <div class="scroll-nav next">
+            <i class="fas fa-chevron-right"></i>
         </div>
     </div>
 </div>
