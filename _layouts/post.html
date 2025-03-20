@@ -9,9 +9,6 @@ post_class: post-template
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
 
-<!-- Mermaid -->
-<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
-
 <!-- Begin Article
 ================================================== -->
 <div class="container">
@@ -175,20 +172,6 @@ post_class: post-template
     overflow-y: hidden;
 }
 
-/* Mermaid diagrams */
-.mermaid {
-    background: var(--card-bg);
-    padding: 1rem;
-    margin: 1.5rem 0;
-    border-radius: 5px;
-    text-align: center;
-}
-
-.mermaid svg {
-    max-width: 100%;
-    height: auto;
-}
-
 /* Tags */
 .tags {
     list-style: none;
@@ -239,38 +222,4 @@ post_class: post-template
         background: #2d2d2d;
     }
 }
-
-[data-theme="dark"] .mermaid {
-    background: var(--card-bg);
-}
 </style>
-
-<!-- Theme-aware Mermaid -->
-<script>
-const updateMermaidTheme = () => {
-    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-    mermaid.initialize({
-        theme: isDark ? 'dark' : 'default',
-        themeVariables: {
-            darkMode: isDark
-        }
-    });
-};
-
-// Update theme when the page loads
-document.addEventListener('DOMContentLoaded', updateMermaidTheme);
-
-// Update theme when it changes
-const themeObserver = new MutationObserver((mutations) => {
-    mutations.forEach((mutation) => {
-        if (mutation.attributeName === 'data-theme') {
-            updateMermaidTheme();
-        }
-    });
-});
-
-themeObserver.observe(document.documentElement, {
-    attributes: true,
-    attributeFilter: ['data-theme']
-});
-</script>

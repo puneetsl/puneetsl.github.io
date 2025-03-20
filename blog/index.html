@@ -172,35 +172,5 @@ MathJax = {
   }
 };
 </script>
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/polyfill/3.111.0/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
-<!-- Theme-aware Mermaid -->
-<script>
-const updateMermaidTheme = () => {
-    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-    mermaid.initialize({
-        theme: isDark ? 'dark' : 'default',
-        themeVariables: {
-            darkMode: isDark
-        }
-    });
-};
-
-// Update theme when the page loads
-document.addEventListener('DOMContentLoaded', updateMermaidTheme);
-
-// Update theme when it changes
-const themeObserver = new MutationObserver((mutations) => {
-    mutations.forEach((mutation) => {
-        if (mutation.attributeName === 'data-theme') {
-            updateMermaidTheme();
-        }
-    });
-});
-
-themeObserver.observe(document.documentElement, {
-    attributes: true,
-    attributeFilter: ['data-theme']
-});
-</script>

@@ -46,8 +46,117 @@ MathJax = {
   }
 };
 </script>
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/polyfill/3.111.0/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<!-- Syntax highlighting using highlight.js -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/hybrid.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/languages/python.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/languages/javascript.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/languages/bash.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/languages/json.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/languages/yaml.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/languages/markdown.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    // Configure highlight.js to ignore mermaid code blocks
+    hljs.configure({
+        ignoreUnescapedHTML: true
+    });
+
+    // Process all non-mermaid code blocks
+    document.querySelectorAll('pre code:not(.language-mermaid)').forEach((block) => {
+        const lines = block.textContent.split('\n');
+        // Remove lines that are just numbers
+        const cleanedLines = lines.filter(line => !/^\s*\d+\s*$/.test(line));
+        block.textContent = cleanedLines.join('\n');
+        hljs.highlightElement(block);
+    });
+    
+    // Initialize line numbers only for highlighted blocks
+    hljs.initLineNumbersOnLoad({
+        singleLine: true
+    });
+
+    // Initialize Mermaid with current theme
+    if (typeof mermaid !== 'undefined') {
+        mermaid.initialize({
+            startOnLoad: false,
+            theme: 'dark',
+            securityLevel: 'loose',
+            flowchart: {
+                curve: 'basis',
+                nodeSpacing: 50,
+                rankSpacing: 50,
+                useMaxWidth: false
+            },
+            themeVariables: {
+                darkMode: false,
+                background: '#ffffff',
+                primaryColor: '#007bff',
+                primaryTextColor: '#333333',
+                primaryBorderColor: '#007bff',
+                lineColor: '#007bff',
+                secondaryColor: '#e9ecef',
+                tertiaryColor: '#f8f9fa',
+                textColor: '#333333',
+                mainBkg: '#ffffff',
+                nodeBorder: '#007bff',
+                clusterBkg: '#f8f9fa',
+                clusterBorder: '#007bff',
+                edgeLabelBackground: '#ffffff',
+                fontSize: '16px'
+            }
+        });
+
+        // Process mermaid blocks
+        document.querySelectorAll('pre code.language-mermaid').forEach((block) => {
+            const pre = block.parentElement;
+            pre.classList.add('mermaid');
+            // Store original content
+            const originalContent = block.textContent;
+            pre.dataset.originalContent = originalContent;
+            
+            // Render the diagram
+            mermaid.render(`mermaid-${Math.random()}`, originalContent)
+                .then(({ svg }) => {
+                    pre.innerHTML = svg;
+                })
+                .catch(error => {
+                    console.error('Failed to render mermaid diagram:', error);
+                    pre.textContent = originalContent;
+                });
+        });
+    }
+
+    // Theme toggle functionality
+    const themeToggle = document.getElementById('theme-toggle');
+    const icon = themeToggle.querySelector('i');
+
+    function updateIcon(theme) {
+        icon.className = theme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
+    }
+
+    // Check for saved theme preference
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        updateIcon(savedTheme);
+    }
+
+    // Theme toggle click handler
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        updateIcon(newTheme);
+    });
+});
+</script>
 
 {% if page.layout == "post" %}
 <!-- KaTeX -->
@@ -56,6 +165,15 @@ MathJax = {
 
 <!-- Mermaid -->
 <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    mermaid.initialize({
+        startOnLoad: true,
+        theme: 'default',
+        securityLevel: 'loose'
+    });
+});
+</script>
 {% endif %}
 
 <style>
@@ -167,6 +285,161 @@ body {
 
 [data-theme="dark"] .navbar-brand img {
     filter: invert(1) brightness(2);
+}
+
+/* Highlight.js theme customization */
+pre code.hljs {
+    display: block;
+    overflow-x: auto;
+    padding: 1em;
+    background: var(--card-bg);
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+    line-height: 1.5;
+    tab-size: 4;
+}
+
+[data-theme="dark"] pre code.hljs {
+    background: var(--card-bg);
+}
+
+.hljs {
+    color: var(--text-color);
+    background: var(--card-bg);
+    padding: 0;
+}
+
+/* Syntax highlighting colors */
+.hljs-comment,
+.hljs-quote {
+    color: #888;
+    font-style: italic;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-section,
+.hljs-link {
+    color: #569cd6;
+}
+
+.hljs-string,
+.hljs-meta,
+.hljs-name,
+.hljs-type,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition,
+.hljs-variable,
+.hljs-template-tag,
+.hljs-template-variable {
+    color: #ce9178;
+}
+
+.hljs-number {
+    color: #b5cea8;
+}
+
+.hljs-deletion,
+.hljs-emphasis {
+    font-style: italic;
+}
+
+.hljs-strong {
+    font-weight: bold;
+}
+
+.hljs-formula {
+    background: var(--card-bg);
+    font-style: italic;
+}
+
+.hljs-attr,
+.hljs-attribute {
+    color: #9cdcfe;
+}
+
+.hljs-params {
+    color: #9cdcfe;
+}
+
+.hljs-class .hljs-title {
+    color: #4ec9b0;
+}
+
+.hljs-tag {
+    color: #808080;
+}
+
+.hljs-title,
+.hljs-params,
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-section,
+.hljs-link {
+    font-weight: bold;
+}
+
+/* Line number styles */
+.hljs-ln {
+    border-collapse: collapse;
+}
+
+.hljs-ln td {
+    padding: 0;
+}
+
+.hljs-ln-numbers {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    text-align: right;
+    color: #888;
+    vertical-align: top;
+    padding-right: 1em !important;
+    white-space: nowrap;
+}
+
+.hljs-ln-code {
+    padding-left: 1em !important;
+    border-left: 1px solid var(--border-color);
+}
+
+/* Mermaid diagram styles */
+.mermaid {
+    background: #ffffff;
+    padding: 1rem;
+    margin: 1.5rem 0;
+    border-radius: 4px;
+    border: 1px solid #dee2e6;
+    text-align: center;
+}
+
+/* Remove all dark theme overrides for Mermaid */
+[data-theme="dark"] .mermaid {
+    background: #ffffff;
+}
+
+/* Prevent highlight.js styling on mermaid blocks */
+pre.mermaid {
+    background: #ffffff !important;
+}
+
+pre.mermaid code {
+    background: none !important;
+    padding: 0 !important;
+    border: none !important;
+}
+
+.mermaid svg {
+    max-width: 100%;
+    height: auto;
 }
 </style>
 </head>
@@ -354,45 +627,5 @@ body {
 <script src="/assets/js/mediumish.js"></script>
 
 <script id="dsq-count-scr" src="//{{site.disqus}}.disqus.com/count.js"></script>
-
-<script>
-// Theme switching functionality
-const themeToggle = document.getElementById('theme-toggle');
-const icon = themeToggle.querySelector('i');
-
-// Check for saved theme preference or system preference
-const savedTheme = localStorage.getItem('theme');
-if (savedTheme) {
-    document.documentElement.setAttribute('data-theme', savedTheme);
-    updateIcon(savedTheme);
-} else {
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const theme = prefersDark ? 'dark' : 'light';
-    document.documentElement.setAttribute('data-theme', theme);
-    updateIcon(theme);
-}
-
-// Listen for system theme changes
-window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-    if (!localStorage.getItem('theme')) {
-        const theme = e.matches ? 'dark' : 'light';
-        document.documentElement.setAttribute('data-theme', theme);
-        updateIcon(theme);
-    }
-});
-
-themeToggle.addEventListener('click', () => {
-    const currentTheme = document.documentElement.getAttribute('data-theme');
-    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-    
-    document.documentElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-    updateIcon(newTheme);
-});
-
-function updateIcon(theme) {
-    icon.className = theme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
-}
-</script>
 </body>
 </html>
