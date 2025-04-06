@@ -304,7 +304,7 @@ The script is simple but powerful, leveraging GPT-4's ability to understand both
 Let's compare the old and new workflows:
 
 ```mermaid
-graph LR
+graph TD
     subgraph "Before: Manual Process"
     A1[Edit in Word/LibreOffice] --> B1[Manually Format]
     B1 --> C1[Export to PDF]
@@ -371,6 +371,24 @@ Ready to transform your own resume workflow? Here are the resources you need:
 - [ModernCV LaTeX Template](https://www.latextemplates.com/template/moderncv-cv-and-cover-letter) - The foundation of my resume design
 - [GitHub Actions Documentation](https://docs.github.com/en/actions) - Learn how to automate your workflow
 - [OpenAI API Documentation](https://platform.openai.com/docs/api-reference) - Explore AI integration possibilities
+
+## Want to Use This System?
+
+The complete automation system described in this post is available as an open-source repository. You can:
+
+1. Fork [my resume repository](https://github.com/puneetsl/Resume)
+2. Customize the LaTeX template to match your style
+3. Set up your own GitHub Actions secrets
+4. Start automating your resume updates
+
+The repository includes:
+
+- Complete GitHub Actions workflow
+- LaTeX template with custom commands
+- Python script for OpenAI API integration
+- Detailed setup instructions
+
+Feel free to adapt it to your needs and contribute improvements back to the community!
 
 ## Conclusion: Reimagining the Resume
 
